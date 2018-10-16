@@ -1,0 +1,14 @@
+.toolbox-image {
+    line-height: 1;
+
+    img {
+        width: 100%;
+    }
+
+    .caption {
+        margin: 5px 0 8px 0;
+        display: block;
+        color: $gray-600;
+        font-size: small;
+    }
+}

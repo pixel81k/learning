@@ -1,0 +1,29 @@
+{% set lightBoxParam = useLightBox is defined and useLightBox is not empty ? useLightBox : pimcore_checkbox('use_light_box').isChecked() %}
+{% set useLightBox = lightBoxParam and editmode == false %}
+{% set hasLink = pimcore_link('link').isEmpty() == false %}
+{% set linkTarget = hasLink ? pimcore_link('link').getTarget() : null %}
+
+<div class="single-teaser default {{ useLightBox ? 'light-box' : '' }}">
+
+    {{  editmode == false and useLightBox
+    ? ('<a href="' ~ pimcore_image('image').getThumbnail(toolbox_get_image_thumbnail('teaser_lightbox')) ~ '" class="item">')|raw
+    : (editmode == false and hasLink ? '<a href="' ~ pimcore_link('link').getHref() ~ '" ' ~ (linkTarget is not empty ? 'target="' ~ pimcore_link('link').getTarget() ~ '"' : '') ~ ' class="item">' : '')|raw
+    }}
+
+    {{ pimcore_image('image', {'thumbnail' : toolbox_get_image_thumbnail('teaser_element'), 'class' : 'img-fluid'}) }}
+
+    {{ editmode == false and (useLightBox or hasLink) ? '</a>' : '' }}
+
+    <div class="teaser-content">
+        {% if pimcore_input('headline') is not empty %}
+            <h4 class="teaser-headline">{{ pimcore_input('headline') }}</h4>
+        {% endif %}
+
+        <div class="teaser-text">
+            {{ pimcore_wysiwyg('text', {'height' : 100, 'customConfig' : '/admin/toolbox-ckeditor-style.js'}) }}
+        </div>
+
+        {{ pimcore_link('link', {'class' : 'btn btn-primary teaser-link'}) }}
+    </div>
+
+</div>

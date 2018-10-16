@@ -1,0 +1,51 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+
+{% include 'Includes/Page/favicons.html.twig' %}
+
+{% spaceless -%}
+    {% do pimcore_head_link().appendStylesheet(asset('static/css/style.css')) %}
+
+    {% if app.environment == 'dev' %}
+        {% do pimcore_head_link().appendStylesheet(asset('static/css/debug.css')) %}
+    {% endif %}
+
+    {% if editmode %}
+        {% do pimcore_head_link().appendStylesheet(asset('static/css/editmode.css')) %}
+    {% else %}
+        <script type="text/javascript" src="{{ asset('static/js/main-header-bundle.js') }}"></script>
+    {% endif %}
+
+    {% if not document is defined or not document %}
+        {% set document = pimcore_document(1) %}
+    {% endif %}
+
+    {% if document is instanceof('\\Pimcore\\Model\\Document\\Link') %}
+        {# @var document \Pimcore\Model\Document\Link #}
+        {% set document = document.getObject() %}
+    {% endif %}
+
+    {% if document.getTitle() is not empty %}
+        {% do pimcore_head_title().set(document.getTitle()) %}
+    {% endif %}
+
+    {% if document.getDescription() is not empty %}
+        {% do pimcore_head_meta().setDescription(document.getDescription()) %}
+    {% endif %}
+{%- endspaceless %}
+
+{% block layout_head_meta %}
+    {{ pimcore_head_title() }}
+    {{ pimcore_head_meta() }}
+{% endblock %}
+
+{% block head_stylesheets %}
+    {{ pimcore_head_link() }}
+{% endblock %}
+
+{% if editmode %}
+    <script type="text/javascript">var _PIMCORE_EDITMODE = true;</script>
+{% endif %}
+
+{{ dachcom_view_helper('javascript', 'getGlobalVars') }}

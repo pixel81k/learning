@@ -1,0 +1,51 @@
+{% block editmode_header %}
+{% if editmode %}
+
+    <!DOCTYPE html>
+<html lang="{{ app.request.locale|replace({'_' : '-'}) }}">
+
+<head>
+
+    {% do pimcore_head_link().appendStylesheet(asset('static/css/style.css')) %}
+
+    <link rel="stylesheet" href="{{ asset('static/css/editmode.css') }}" media="screen" type="text/css">
+    <script type="text/javascript" src="{{ asset('static/js/main-header-bundle.js') }}"></script>
+    <script type="text/javascript">var _PIMCORE_EDITMODE = true;</script>
+
+    {{ pimcore_head_link() }}
+
+</head>
+
+<body class="snippet">
+
+<div id="wrapper">
+
+    <main id="main-content">
+
+        <div class="container-fluid">
+
+
+            {% endif %}
+            {% endblock editmode_header %}
+
+            {% block editmode_footer %}
+            {% if editmode %}
+
+
+        </div>
+
+    </main>
+
+</div>
+
+{{ dachcom_view_helper('javascript', 'getGlobalVars') }}
+
+{% block javascripts %}
+    <script src="{{ asset('static/js/main-footer-bundle.js') }}" type="text/javascript"></script>
+{% endblock %}
+
+</body>
+</html>
+
+    {% endif %}
+{% endblock editmode_footer %}

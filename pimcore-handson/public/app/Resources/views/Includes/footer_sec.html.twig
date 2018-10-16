@@ -1,0 +1,17 @@
+{% set fnav_sec = pimcore_build_nav(document, dachcom_menu_start_node(document, 'fnav_sec_start_node', false)) %}
+
+<div class="row">
+        <div class="col-12 col-md-9">
+        {% if not fnav_sec is empty %}
+            <nav class="dd-fnav-sec text-uppercase">
+                {{ pimcore_render_nav(fnav_sec, 'menu', 'renderMenu', {
+                    maxDepth: 1,
+                    ulClass: 'list-unstyled clearfix nav'
+                }) }}
+            </nav>
+        {% endif %}
+    </div>
+    <div class="col-12 col-md-3 text-uppercase">
+        &copy; {{ 'now'|date('Y') }} <a href="https://www.dachcom.com" target="_blank">DACHCOM.DIGITAL AG</a>
+    </div>
+</div>

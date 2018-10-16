@@ -1,0 +1,9 @@
+.toolbox-slide-columns {
+    > .row {
+        > .slide-columns {
+            //bootstrap4 flex fix.
+            display:flex;
+            overflow: hidden;
+        }
+    }
+}

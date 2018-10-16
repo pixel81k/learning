@@ -1,0 +1,35 @@
+{% extends 'Base/content/default.html.twig' %}
+
+{% block action %}
+    <div class="container">
+        <div class="row">
+            <a class="btn btn-outline-info btn-light" href="{{ backLink }}" alt="{{ 'news.navigate_back'|trans }}">{{ 'news.navigate_back'|trans }}</a>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>{{ entry.title }}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="text-small">{{ entry.date | date  | split(' ') | slice(0,3) | join(' ') }} ({{ entry.author }}) | {% for category in entry.categories %}<a class="btn btn-outline-info btn-light" href="{{ category.link }}" alt="{{ category.title }}">{{ category.title }}</a> {% endfor %}</p>
+            </div>
+        </div>
+        {% for picture in entry.pictures %}
+            <div class="row">
+                <div class="col-sm-12 toolbox-news-detail-image">
+                    {{ picture.getThumbnail("news_detail").getHtml|raw }}
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class="row">
+            <div class="col-sm-12">
+                {{ entry.content | raw }}
+            </div>
+        </div>
+        <div class="row">
+            <a class="btn btn-outline-info btn-light" href="{{ backLink }}" alt="{{ 'news.navigate_back'|trans }}">{{ 'news.navigate_back'|trans }}</a>
+        </div>
+    </div>
+{% endblock %}

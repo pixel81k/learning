@@ -1,0 +1,292 @@
+//
+// Colors
+// -------------------------------
+
+$dachcom-color-primary: #ff004d;
+$dachcom-color-grey02: #787371;
+$dachcom-color-grey05: #f2f2f2;
+$dachcom-color-white: #ffffff;
+$dachcom-color-black: #000000;
+
+html {
+    background: $dachcom-color-grey05;
+}
+
+
+table.body {
+}
+
+table {
+    //width: 100%;
+}
+
+
+.no-hyphens td, .no-hyphens th {
+    word-wrap: normal;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    hyphens: none;
+}
+
+
+.alert {
+    background: #d2e2ef;
+    border: 1px solid #9cbbd4;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.text-nowrap {
+    white-space: nowrap;
+}
+
+code {
+    padding: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(0,0,0,0.04);
+}
+
+table.container {
+    background: transparent;
+}
+
+table.wide-container {
+    width: 690px;
+    background: $dachcom-color-white;
+    box-shadow:0 0 30px #d6d6d6;
+}
+
+table.fixed {
+    table-layout: fixed;
+}
+
+.white-bg {
+    background: $dachcom-color-white;
+}
+
+.body-bg {
+    background:$dachcom-color-grey05;
+}
+
+.spacer .spacer-item {
+    height: 14px;
+}
+
+.spacer .spacer-item-large {
+    height: 32px;
+}
+.spacer .spacer-item-small {
+    height: 6px;
+}
+
+.padding-bottom-large td {
+    padding-bottom: 6px;
+}
+
+.text-right-desktop {
+    text-align: right;
+}
+
+img.img-100 {
+    width: 100%;
+    max-width: 100%;
+}
+
+// Override ZURB defaults Start
+body,
+table.body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+td,
+th,
+a {
+    color: #444444;
+    font-family: Verdana, Helvetica, Geneva, Arial, sans-serif;
+    line-height: 1.3;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Verdana, Helvetica, Geneva, Arial, sans-serif;
+}
+
+h1 {
+    font-size: 17px;
+    margin-bottom: 16px;
+}
+
+h5 {
+    font-size: 15px;
+    margin-bottom: 16px;
+}
+
+h6 {
+    margin-bottom: 16px;
+}
+
+body,
+table.body,
+p,
+td,
+th {
+    font-size: 12px;
+    line-height: 22px;
+}
+
+p.lead {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+td.columns,
+td.column,
+th.columns,
+th.column {
+    padding-bottom: 4px;
+}
+
+table.hr th {
+    border-bottom: 1px solid #efefef;
+}
+
+table.hr-top th {
+    border-bottom: none;
+    border-top: 1px solid #efefef;
+    padding-top: 7px;
+}
+
+table.small-margin-bottom {
+    margin-bottom: 7px;
+}
+
+// Override ZURB defaults End
+
+// editmode styles
+.editmode-alert-info {
+
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px dashed #bce8f1;
+    border-radius: 0;
+    color: #31708f;
+    background-color: #d9edf7;
+    font-size:14px;
+    font-family:Arial , Tahoma, Verdana, sans-serif;
+}
+
+.logo {
+    width: 130px;
+    margin: 0 auto;
+}
+
+.mail-table {
+
+    padding:10px;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+    &.mail-order-info {
+
+        thead {
+
+            tr {
+
+                td.first {
+                    width:30%;
+                }
+
+                td.second {
+                    width:60%;
+                }
+
+                td.third {
+                    width:10%;
+                    text-align: right;
+                }
+            }
+        }
+
+        tbody {
+
+            tr {
+
+                td.first {
+                }
+
+                td.second {
+                }
+
+                td.third {
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+
+th.footer-note {
+    color:$dachcom-color-grey02;
+    font-size: 11px;
+}
+
+th.footer-note a, th.footer-note a:visited {
+    color: $dachcom-color-primary;
+}
+
+@media only screen and (min-width: 595px) {
+    table.visible-mobile {
+        display: none;
+    }
+}
+
+//foundation email "small"
+@media only screen and (max-width: 596px) {
+
+    table.body .wide-container {
+        width: 95% !important;
+    }
+
+    html {
+        background: $dachcom-color-white;
+    }
+
+    table.body {
+        background: $dachcom-color-white;
+    }
+
+    table.wrapper {
+        width: 95%;
+        background: $dachcom-color-white;
+        box-shadow:none;
+    }
+
+    table.container {
+        background: $dachcom-color-white;
+    }
+    .text-right-desktop {
+        text-align: left!important;
+    }
+    .container-inner {
+        padding: 0px!important;
+    }
+    .visible-desktop {
+        display: none!important;
+    }
+    table.visible-mobile {
+        display: table;
+    }
+
+}

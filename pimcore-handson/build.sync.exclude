@@ -1,0 +1,12 @@
+# Project
+
+- /var/config/reports.php
+- /var/config/portal/*
+
++ /var/classes/objectbricks
++ /var/classes/fieldcollections
++ /var/classes/definition_*
++ /var/config/*
+
+- /var/*/*
+- /web/bundles

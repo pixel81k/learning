@@ -1,0 +1,51 @@
+{# Mobile Navigation #}
+
+{% set max_depth = 5 %}
+{% set current_depth = current_depth is defined ? current_depth+1 : 1 %}
+
+<ul>
+    {% for page in pages %}
+
+        {% if page._visible %}
+
+            {% set li_classes = [
+            page._class,
+            page._pages|length > 0 and current_depth <= max_depth ? ' has-child',
+            loop.first ? ' first',
+            loop.last ? ' last'
+            ] %}
+
+            <li class="{{ li_classes|join|trim }}">
+
+                <div class="dd-mnav-lv1-item {{ page.getActive() ? 'active' : '' }}">
+                    <a href="{{ page.getUri() }}">
+                        {{ page.getLabel() }}
+                    </a>
+                </div>
+
+                {% if page._pages|length > 0 and current_depth <= max_depth %}
+
+                    {% set document = page.getDocument() %}
+                    {% if document.getType() == 'link' %}
+                        {% set document = pimcore_document(document.internal()) %}
+                    {% endif %}
+
+                    {% set subNav = pimcore_build_nav(document, document) %}
+                    {{ pimcore_render_nav(subNav, 'menu', 'renderMenu', {
+                        maxDepth: max_depth-1,
+                        ulClass: 'list-unstyled'
+                    }) }}
+
+                    {#{% include 'Includes/Navigation/mnav.html.twig' with {#}
+                    {#'current_depth': current_depth,#}
+                    {#'pages' : page#}
+                    {#} %}#}
+
+                {% endif %}
+
+            </li>
+
+        {% endif %}
+
+    {% endfor %}
+</ul>

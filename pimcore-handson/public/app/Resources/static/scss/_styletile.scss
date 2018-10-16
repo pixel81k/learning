@@ -1,0 +1,219 @@
+// Styletile mixins
+
+@mixin style-tile-element($type) {
+
+    @if $type == 'h1' {
+
+        font-size: $h1-font-size*.8;
+
+        @content;
+
+        @include media-breakpoint-up(sm) {
+            font-size: $h1-font-size*.9;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: $h1-font-size;
+        }
+
+    } @else if $type == 'h2' {
+
+        font-size: $h2-font-size*.8;
+        margin: 0 0 .5em 0;
+
+        @content;
+
+        @include media-breakpoint-up(sm) {
+            font-size: $h2-font-size*.9;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: $h2-font-size;
+        }
+
+    } @else if $type == 'h3' {
+
+        font-size: $h3-font-size*.8;
+        margin: 0 0 .5em 0;
+
+        @content;
+
+        @include media-breakpoint-up(sm) {
+            font-size: $h3-font-size*.9;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: $h3-font-size;
+        }
+
+    } @else if $type == 'h4' {
+
+        font-size: $h4-font-size*.8;
+        margin: 0 0 .5em 0;
+
+        @content;
+
+        @include media-breakpoint-up(sm) {
+            font-size: $h4-font-size*.9;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: $h4-font-size;
+        }
+
+    } @else if $type == 'h5' {
+
+        font-size: $h5-font-size*.8;
+        font-weight: 600;
+        margin: 0 0 .5em 0;
+
+        @content;
+
+        @include media-breakpoint-up(sm) {
+            font-size: $h5-font-size*.9;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: $h5-font-size;
+        }
+
+    } @else if $type == 'bigtitle' {
+
+        font-size: $font-size-base*2;
+        font-weight: 600;
+        margin: 0 0 .5em 0;
+
+        @content;
+
+        @include media-breakpoint-up(sm) {
+            font-size: $font-size-base*3;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: $font-size-base*4;
+        }
+
+    } @else if $type == 'lead' {
+
+        font-size: $lead-font-size*.8;
+
+        @content;
+
+        @include media-breakpoint-up(sm) {
+            font-size: $lead-font-size*.9;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: $lead-font-size;
+        }
+
+    } @else if $type == 'p' {
+
+        font-size: $font-size-base*.8;
+
+        @content;
+
+        @include media-breakpoint-up(sm) {
+            font-size: $font-size-base*.9;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: $font-size-base;
+        }
+
+    } @else if $type == 'text-small' {
+
+        font-size: $small-font-size*.8;
+
+        @include media-breakpoint-up(sm) {
+            font-size: $small-font-size*.9;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: $small-font-size;
+        }
+
+    } @else if $type == 'label' {
+
+        font-weight: 600;
+
+        @content;
+
+    } @else if $type == 'ul' {
+
+        list-style-type: none;
+        margin: 0 0 25px 0;
+        padding: 0;
+
+        li {
+            line-height: 1.2em;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            list-style: none;
+            display: block;
+            position: relative;
+
+            &, p {
+                @include style-tile-element('p');
+            }
+
+            &:before {
+                position: absolute;
+                left: 0;
+                top: 5px;
+                @include fa-icon;
+                content: '\f0c8';
+                font-size: 8px;
+                display: inline-block;
+                width: 20px;
+                color: $primary;
+            }
+
+            ul {
+                margin: 5px 0;
+            }
+        }
+
+        @content;
+
+    } @else if $type == 'ol' {
+
+        padding: 0;
+        margin: 0 0 25px 0;
+
+        counter-reset: item;
+        list-style-type: none;
+
+        li {
+            line-height: 1.2em;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            list-style: none;
+            display: block;
+            position: relative;
+
+            &, p {
+                @include style-tile-element('p');
+            }
+
+            &:before {
+                position: absolute;
+                left: 0;
+                top: 0;
+                content: counter(item) ".";
+                counter-increment: item;
+                display: inline-block;
+                width: 20px;
+                color: $primary;
+            }
+
+            ol {
+                margin: 5px 0;
+            }
+
+        }
+
+        @content;
+    }
+
+}

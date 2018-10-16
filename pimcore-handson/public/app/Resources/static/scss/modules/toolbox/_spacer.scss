@@ -1,0 +1,19 @@
+.toolbox-spacer {
+
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+
+    span {
+
+        display:inline-block;
+        width:100%;
+        height:1px;
+
+        &.spacer-50 {
+            margin-top:49px;
+        }
+
+    }
+
+}

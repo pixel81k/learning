@@ -1,0 +1,111 @@
+.dd-footer-color {
+    background: $dd-footer-bg;
+}
+
+.dd-footer {
+    padding: $spacer*2 0;
+
+    &, address, p {
+        color: $dd-footer-color;
+    }
+
+    a {
+        display: block;
+        &, &:focus, &:hover, &:active {
+            color: $dd-footer-color;
+        }
+    }
+
+    .dd-fnav {
+        display: none;
+
+        @include media-breakpoint-up(md) {
+            display: block;
+        }
+    }
+
+    .dd-footer-title {
+        text-transform: uppercase;
+        margin-bottom: ($spacer * .5);
+        display: block;
+    }
+
+    .dd-social-links {
+        a {
+            display: block;
+            border: 1px solid;
+            border-radius: 50%;
+            height: 28px;
+            width: 28px;
+            text-align: center;
+            padding: 5px 0;
+            float: left;
+            margin: 0 10px 10px 0;
+            color: $dd-footer-social-color;
+            transition: all .4s;
+
+            &:hover, &:active, &:focus {
+                text-decoration: none;
+                color: $white;
+
+                &.dd-facebook {
+                    background: #4267b2;
+                    border-color: #4267b2;
+                }
+                &.dd-youtube {
+                    background: #FF0000;
+                    border-color: #FF0000;
+                }
+                &.dd-twitter {
+                    background: #1da1f2;
+                    border-color: #1da1f2;
+                }
+                &.dd-linkedin {
+                    background: #3477b5;
+                    border-color: #3477b5;
+                }
+                &.dd-xing {
+                    background: #216466;
+                    border-color: #216466;
+                }
+                &.dd-google {
+                    background: #dc4938;
+                    border-color: #dc4938;
+                }
+            }
+        }
+
+    }
+}
+
+.dd-footer-sec-color {
+    background: $dd-footer-sec-bg;
+}
+
+.dd-footer-sec {
+    padding: $spacer*2 0;
+    font-size: smaller;
+
+    &, address, p {
+        color: $dd-footer-sec-color;
+    }
+
+    a {
+        &, &:focus, &:hover, &:active {
+            color: $dd-footer-sec-color;
+        }
+    }
+
+    .dd-fnav-sec {
+        li {
+            a {
+                padding-right: 10px;
+                border-right: 1px solid;
+                margin-right: 10px;
+            }
+            &:last-child a {
+                border-right: none;
+            }
+        }
+    }
+}

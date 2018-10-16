@@ -1,0 +1,31 @@
+imports:
+    - { resource: 'local/' }
+    - { resource: parameters.yml }
+    - { resource: services.yml }
+
+    - { resource: dachcom/viewhelper.yml }
+    - { resource: dachcom/twig/twig.yml }
+
+    - { resource: dachcom/toolbox/toolbox.yml }
+    - { resource: dachcom/toolbox/areas/* }
+
+    - { resource: dachcom/lucene_search/lucene_search.yml }
+    - { resource: dachcom/i18n/i18n.yml }
+    - { resource: dachcom/formbuilder/formbuilder.yml }
+    - { resource: dachcom/monitoring/monitoring.yml }
+
+#### FEATURE FLAGS
+#    flags:
+#        zend_date: true
+
+#### CLASS OVERRIDES EXAMPLES
+#    models:
+#        class_overrides:
+#            'Pimcore\Model\Object\News': 'AppBundle\Model\Object\News'
+#            'Pimcore\Model\Object\News\Listing': 'AppBundle\Model\Object\News\Listing'
+#            'Pimcore\Model\Object\Folder': 'AppBundle\Model\Object\Folder'
+#            'Pimcore\Model\Asset\Folder': 'AppBundle\Model\Asset\Folder'
+#            'Pimcore\Model\Asset\Image': 'AppBundle\Model\Asset\Image'
+#            'Pimcore\Model\Document\Page': 'AppBundle\Model\Document\Page'
+#            'Pimcore\Model\Document\Link': 'AppBundle\Model\Document\Link'
+#            'Pimcore\Model\Document\Listing': 'AppBundle\Model\Document\Listing'

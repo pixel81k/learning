@@ -1,0 +1,30 @@
+{# Footer Navigation #}
+
+{% set showSubLevels = pimcore_placeholder('show_sublevel') != 'false' %}
+{% spaceless %}
+    <div class="row">
+        {% for page in pages %}
+            {% if page.getVisible() %}
+
+                <div class="col-6 col-ty-5 col-md-4 col-lg-2 mb-3">
+                    <a href="{{ page.getUri() }}" class="dd-footer-title {{ page.getActive() ? 'active' : '' }}">
+                        {{ page.getLabel() }}
+                    </a>
+
+                    {% set document = page.getDocument() %}
+                    {% if document.getType() == 'link' %}
+                        {% set document = pimcore_document(document.internal()) %}
+                    {% endif %}
+
+                    {% set subNav = pimcore_build_nav(document, document) %}
+                    {{ pimcore_render_nav(subNav, 'menu', 'renderMenu', {
+                        maxDepth: 0,
+                        ulClass: 'list-unstyled'
+                    }) }}
+
+                </div>
+
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endspaceless %}

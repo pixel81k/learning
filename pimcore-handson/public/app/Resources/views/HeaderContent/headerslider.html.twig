@@ -1,0 +1,62 @@
+<div class="dd-header-slider dc-last-gap-element">
+
+    <ul class="slick-slider dd-slick-slider{{ slider.kenBurns ? ' ken-burns'}}" {{ toolbox_data_attributes_generator('header_slider', {
+        autoplay: slider.getAutoplay(),
+        autoplay_speed: slider.getAutoplaySpeed(),
+        speed: slider.getSlideSpeed(),
+        dots: slider.getDots(),
+        dots_class: slider.getDotsInside() ? 'dd-slick-dots dd-slick-dots-inside' : 'dd-slick-dots',
+        arrows: slider.getArrows(),
+        fade: slider.getFade()
+    })|raw }}>
+
+        {% for slide in slider.getSlideElements() %}
+
+            <li class="slide">
+
+                <div class="dd-header-slider-item">
+                    {{ slide.image.getData().getThumbnail(pimcore_website_config('base_template') == 'boxed' ? 'header_slider_boxed' : 'header_slider')
+                    .getHtml({'class':'img-fluid dd-header-slider-image'})|raw }}
+
+                    <div class="dd-header-slider-content">
+                        <div class="container">
+
+                            {% set title = dachcom_view_helper('localisation', 'getLocalizedfield', {'localizedfields':slide.localizedfields.data, 'data_type':'title'}) %}
+                            {% if(title) %}
+                                <div class="dd-content-element">
+                                    <span class="dd-header-slider-title">
+                                        {{ title }}
+                                    </span>
+                                </div>
+                            {% endif %}
+
+                            {% set subtitle = dachcom_view_helper('localisation', 'getLocalizedfield', {'localizedfields':slide.localizedfields.data, 'data_type':'subtitle'}) %}
+                            {% if(subtitle) %}
+                                <div class="dd-content-element">
+                                    <span class="dd-header-slider-subtitle">
+                                        {{ subtitle }}
+                                    </span>
+                                </div>
+                            {% endif %}
+
+                            {% set link = dachcom_view_helper('localisation', 'getLocalizedfield', {'localizedfields':slide.localizedfields.data, 'data_type':'link'}) %}
+                            {% if link %}
+                                <div class="dd-content-element">
+                                    <span class="dd-header-slider-link">
+                                        {{ link.getClass() is empty ? link.setClass('btn btn-sm btn-light') }}
+                                        {{ link|raw }}
+                                    </span>
+                                </div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+</div>

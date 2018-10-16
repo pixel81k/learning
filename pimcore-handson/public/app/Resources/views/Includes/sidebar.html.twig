@@ -1,0 +1,8 @@
+<div class="dd-sidebar">
+    {% set snav = pimcore_build_nav(document, dachcom_menu_start_depth_node(document, 2)) %}
+    {% if not snav is empty %}
+        <nav class="dd-snav">
+            {{ pimcore_render_nav(snav, 'menu', 'renderTemplate', 'Includes/Navigation/snav.html.twig') }}
+        </nav>
+    {% endif %}
+</div>

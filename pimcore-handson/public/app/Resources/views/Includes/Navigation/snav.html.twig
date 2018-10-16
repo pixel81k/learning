@@ -1,0 +1,33 @@
+{# Side Navigation #}
+
+{% set showSubLevels = pimcore_placeholder('show_sublevel') != 'false' %}
+{% spaceless %}
+    <ul>
+        {% for page in pages %}
+            {% if page.getVisible() %}
+
+                <li class="{{ page.getActive() ? 'active'}}{{ page.hasChildren() ? ' has-child' }}">
+
+                    <div class="dd-snav-lv1-item {{ page.getActive() ? 'active' : '' }}">
+                        <a href="{{ page.getUri() }}">
+                            {{ page.getLabel() }}
+                        </a>
+                    </div>
+
+                    {% set document = page.getDocument() %}
+                    {% if document.getType() == 'link' %}
+                        {% set document = pimcore_document(document.internal()) %}
+                    {% endif %}
+
+                    {% set subNav = pimcore_build_nav(document, document) %}
+                    {{ pimcore_render_nav(subNav, 'menu', 'renderMenu', {
+                        maxDepth: 2,
+                        ulClass: 'list-unstyled'
+                    }) }}
+
+                </li>
+
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endspaceless %}

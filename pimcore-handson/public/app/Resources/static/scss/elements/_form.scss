@@ -1,0 +1,7 @@
+label, legend {
+    &.required {
+        &:after {
+            content: '*';
+        }
+    }
+}

@@ -1,0 +1,132 @@
+.toolbox-download {
+    ul {
+        li {
+            a {
+                display: block;
+                margin-bottom: $spacer*0.5;
+                position: relative;
+                padding-left: 25px;
+
+                &, &:hover, &:focus, &:active {
+                    text-decoration: none;
+                    color: $body-color;
+                }
+
+                &:hover {
+                    color: $primary;
+                }
+
+                &:before {
+                    position: absolute;
+                    @include dachcom-vertical-center;
+                    left: 0;
+                    @include fa-icon;
+                    font-size: 20px;
+                    content: '\f016';
+                    color: $body-color;
+                }
+
+                &.icon-download-pdf {
+                    &:before {
+                        content: '\f1c1';
+                        color: $red;
+                    }
+                }
+
+                &.icon-download-docx, &.icon-download-doc, &.icon-download-odt {
+                    &:before {
+                        content: '\f1c2';
+                        color: $blue;
+                    }
+                }
+
+                &.icon-download-xlsx, &.icon-download-xls, &.icon-download-ods, &.icon-download-csv {
+                    &:before {
+                        content: '\f1c3';
+                        color: $green;
+                    }
+                }
+
+                &.icon-download-pptx, &.icon-download-ppt, &.icon-download-odp {
+                    &:before {
+                        content: '\f1c4';
+                    }
+                }
+
+                &.icon-download-jpg, &.icon-download-jpeg, &.icon-download-png, &.icon-download-svg, &.icon-download-svg, &.icon-download-tiff, &.icon-download-tif, &.icon-download-gif {
+                    &:before {
+                        content: '\f1c5';
+                    }
+                }
+
+                &.icon-download-txt, &.icon-download-text {
+                    &:before {
+                        content: '\f0f6';
+                    }
+                }
+
+                &.icon-download-mp4, &.icon-download-mpg, &.icon-download-mpeg, &.icon-download-webm, &.icon-download-ogv, &.icon-download-ogg, &.icon-download-avi, &.icon-download-mov, &.icon-download-webm {
+                    &:before {
+                        content: '\f1c8';
+                    }
+                }
+
+                &.icon-download-mp3, &.icon-download-wav {
+                    &:before {
+                        content: '\f0f6';
+                    }
+                }
+
+                .file-info {
+                    text-transform: uppercase;
+                    white-space: nowrap;
+                }
+
+            }
+        }
+    }
+
+    .show-image-preview {
+        ul {
+            li {
+                &:first-child {
+                    a {
+                        border-top: none;
+                        padding-top: 0;
+                        margin-top: 0;
+                    }
+                }
+                a {
+                    border-top: 1px solid $gray-400;
+                    padding-top: $grid-gutter-width/2;
+                    margin-top: $grid-gutter-width/2;
+                    padding-left: 0;
+                    overflow: hidden;
+
+                    &:before {
+                        display: none;
+                    }
+
+                    .preview-image {
+                        display: block;
+                        float: left;
+                        border: 1px solid $gray-400;
+                        width: 80px;
+                        margin-right: $spacer*.5;
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+
+                    .file-info {
+                        display: block;
+                        font-size: smaller;
+                    }
+                }
+
+            }
+        }
+    }
+}

@@ -1,0 +1,123 @@
+.dd-sidebar {
+
+    display: none;
+    @include media-breakpoint-up(md) {
+        display: block;
+    }
+
+    .dd-snav {
+        margin-bottom: $spacer*2;
+        > ul {
+
+            a {
+                display: block;
+                color: $dd-snav-color;
+                font-size: smaller;
+                padding-bottom: 5px;
+
+                &:hover, &:focus, &:active {
+                    text-decoration: none;
+                    color: $dd-snav-color-hover;
+                }
+            }
+
+            li.active {
+                > a {
+                    color: $dd-snav-color-hover;
+                }
+            }
+
+            > li {
+                .dd-snav-lv1-item {
+                    background: $dd-snav-lv1-bg;
+                    position: relative;
+                    transition: background .4s;
+                    margin-bottom: 1px;
+                    border-radius: $border-radius;
+                    cursor: pointer;
+
+                    &:hover, &.open {
+                        background: $dd-snav-lv1-bg-hover;
+                    }
+
+                    a {
+                        padding: 10px 0 10px 10px;
+                        color: $dd-snav-lv1-color;
+
+                        &:hover, &.active {
+                            color: $dd-snav-lv1-color-hover;
+                        }
+                    }
+
+                }
+
+                &.has-child {
+
+                    .dd-snav-lv1-item  {
+                        padding-right: 30px;
+
+                        &:after {
+                            position: absolute;
+                            right: 10px;
+                            @include dachcom-vertical-center();
+                            @include fa-icon;
+                            content: "\f078";
+                            margin-top: -2px;
+                        }
+                        &.open {
+                            &:after {
+                                content: "\f077";
+                            }
+                        }
+                    }
+
+                    &.active {
+                        > ul {
+                            display: block;
+                        }
+                    }
+
+                }
+
+                > ul {
+                    display: none;
+                    padding: 10px;
+
+                    > li {
+
+                        > ul {
+                            margin-bottom: $spacer*0.5;
+                            display: none;
+
+                            li {
+                                padding-left: 20px;
+                            }
+                        }
+
+                        &.active {
+
+                            > ul {
+                                display: block;
+
+                                li {
+                                    ul {
+                                        display: none;
+                                    }
+
+                                    &.active {
+                                        ul {
+                                            display: block;
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+
+                    }
+
+                }
+            }
+        }
+    }
+}

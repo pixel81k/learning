@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+
+{% block layout %}
+
+    <div id="wrapper" class="template-{{ pimcore_website_config('base_template')|default('default') }}">
+        {% block basetemplate %}
+
+            <header id="header" class="dd-header dd-header-color">
+                <div class="container">
+                    {% include 'Includes/header.html.twig' %}
+                </div>
+            </header>
+
+            {% if document.getProperty('use_header_content') %}
+                <div class="dd-header-content dd-content-color">
+
+                    {{ pimcore_renderlet('header_content', {
+                        'controller': 'content',
+                        'action': 'headerContent',
+                        'title': 'Drop an image or a slider object to create the header content',
+                        'height': 300,
+                        'reload': true
+                    }) }}
+
+                </div>
+            {% endif %}
+
+            <main id="main-content" class="dd-main-content dd-content-color">
+                <div class="container">
+                    {{ block('content') }}
+                </div>
+            </main>
+
+            <footer id="footer-sec" class="dd-footer-sec dd-footer-sec-color">
+                <div class="container">
+                    {% include 'Includes/footer_sec.html.twig' %}
+                </div>
+            </footer>
+
+        {% endblock %}
+    </div>
+
+{% endblock %}

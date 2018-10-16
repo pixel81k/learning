@@ -1,0 +1,15 @@
+services:
+    # view helper "javascript".
+    # usage: {{ dachcom_view_helper('javascript', 'getGlobalVars') }}
+    AppBundle\ViewHelper\Javascript:
+        parent: AppBundle\ViewHelper\AbstractViewHelper
+        # remove this call if you are not using the i18n
+        calls:
+#            - [setContextManager, ['@I18nBundle\Manager\ContextManager']]
+        tags:
+            - { name: dachcom.view_helper, alias: javascript }
+
+    AppBundle\ViewHelper\Localisation:
+        parent: AppBundle\ViewHelper\AbstractViewHelper
+        tags:
+            - { name: dachcom.view_helper, alias: localisation }

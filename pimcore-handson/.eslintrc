@@ -1,0 +1,64 @@
+{
+    "env": {
+        "browser": true,
+        "jquery": true
+    },
+    "globals": {
+        "Modernizr": true,
+        "Stapes" : true,
+        "google" : true,
+        "websiteRouter" : true,
+        "AbstractModule" : true,
+        "AbstractHelper" : true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "eqeqeq": [
+            "warn"
+        ],
+        "guard-for-in": [
+            "error"
+        ],
+        "indent": [
+            "warn",
+            4,
+            {
+                "SwitchCase": 1,
+                "VariableDeclarator": 1
+            }
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "no-bitwise": [
+            "warn"
+        ],
+        "no-caller": [
+            "error"
+        ],
+        "no-new": [
+            "error"
+        ],
+        "one-var": [
+            "error"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "strict": [
+            "error"
+        ],
+        "vars-on-top": [
+            "error"
+        ],
+        "no-unused-vars": [
+            "error"
+        ]
+    }
+}

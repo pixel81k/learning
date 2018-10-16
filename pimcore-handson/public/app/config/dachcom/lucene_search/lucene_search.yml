@@ -1,0 +1,18 @@
+#lucene_search:
+#    enabled: true
+#    fuzzy_search_results: false
+#    search_suggestion: true
+#    categories: dachcom.lucene_search.services.categories
+#    seeds:
+#        - 'http://pimcore-quickinstaller.dev'
+#    filter:
+#        valid_links:
+#           - '@^http://pimcore-quickinstaller.dev.*@i'
+#        user_invalid_links:
+#            - '@^http://pimcore-quickinstaller.dev\/admin.*@i'
+#    view:
+#        max_per_page: 10
+#    crawler:
+#        content_max_size: 4
+#        content_start_indicator: '<!-- main-content -->'
+#        content_end_indicator: '<!-- /main-content -->'

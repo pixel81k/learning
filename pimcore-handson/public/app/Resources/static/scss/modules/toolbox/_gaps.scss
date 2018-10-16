@@ -1,0 +1,204 @@
+/**
+    Mission: Define all the gaps for all elements with css.
+    In. every. f***. breakpoint.
+    Use the grid.js helper to inject forcing gaps for floating elements.
+
+    Set $content-gap-debug true in variables to debug your layout!
+
+    1. Be sure all your custom bricks does have a .toolbox-element class
+    2. If you need a custom gap watcher you could also use the .dc-gap-element class
+
+ */
+
+// 1. all custom elements!
+.dc-gap-element,
+.dc-last-gap-element {
+
+    @if $content-gap-debug == false {
+        margin-bottom: map_get($content-gap, 'xs');
+    } @else {
+        border-bottom: map_get($content-gap, 'xs') solid rgba(green, 0.2);
+    }
+    @include media-breakpoint-up(ty) {
+        @if $content-gap-debug == false {
+            margin-bottom: map_get($content-gap, 'ty');
+        } @else {
+            border-bottom: map_get($content-gap, 'ty') solid rgba(green, 0.2);
+        }
+    }
+    @include media-breakpoint-up(sm) {
+        @if $content-gap-debug == false {
+            margin-bottom: map_get($content-gap, 'sm');
+        } @else {
+            border-bottom: map_get($content-gap, 'sm') solid rgba(green, 0.2);
+        }
+    }
+    @include media-breakpoint-up(md) {
+        @if $content-gap-debug == false {
+            margin-bottom: map_get($content-gap, 'md');
+        } @else {
+            border-bottom: map_get($content-gap, 'md') solid rgba(green, 0.2);
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        @if $content-gap-debug == false {
+            margin-bottom: map_get($content-gap, 'lg');
+        } @else {
+            border-bottom: map_get($content-gap, 'lg') solid rgba(green, 0.2);
+        }
+    }
+    @include media-breakpoint-up(xl) {
+        @if $content-gap-debug == false {
+            margin-bottom: map_get($content-gap, 'xl');
+        } @else {
+            border-bottom: map_get($content-gap, 'xl') solid rgba(green, 0.2);
+        }
+    }
+
+    // container: last element no margin!
+    &:last-child:not(.force-margin):not(.dc-last-gap-element) {
+        @if $content-gap-debug == false {
+            margin-bottom: 0;
+        } @else {
+            border-bottom: 0;
+        }
+    }
+}
+
+// 2. all toolbox elements!
+.toolbox-element {
+
+    //all elements except headlines!
+    &:not(.toolbox-headline) {
+        @if $content-gap-debug == false {
+            margin-bottom: map_get($content-gap, 'xs');
+        } @else {
+            border-bottom: map_get($content-gap, 'xs') solid rgba(red, 0.2);
+        }
+        @include media-breakpoint-up(ty) {
+            @if $content-gap-debug == false {
+                margin-bottom: map_get($content-gap, 'ty');
+            } @else {
+                border-bottom: map_get($content-gap, 'ty') solid rgba(red, 0.2);
+            }
+        }
+        @include media-breakpoint-up(sm) {
+            @if $content-gap-debug == false {
+                margin-bottom: map_get($content-gap, 'sm');
+            } @else {
+                border-bottom: map_get($content-gap, 'sm') solid rgba(red, 0.2);
+            }
+        }
+        @include media-breakpoint-up(md) {
+            @if $content-gap-debug == false {
+                margin-bottom: map_get($content-gap, 'md');
+            } @else {
+                border-bottom: map_get($content-gap, 'md') solid rgba(red, 0.2);
+            }
+        }
+        @include media-breakpoint-up(lg) {
+            @if $content-gap-debug == false {
+                margin-bottom: map_get($content-gap, 'lg');
+            } @else {
+                border-bottom: map_get($content-gap, 'lg') solid rgba(red, 0.2);
+            }
+        }
+        @include media-breakpoint-up(xl) {
+            @if $content-gap-debug == false {
+                margin-bottom: map_get($content-gap, 'xl');
+            } @else {
+                border-bottom: map_get($content-gap, 'xl') solid rgba(red, 0.2);
+            }
+        }
+    }
+
+    // container: last element no margin!
+    &.toolbox-container {
+        > .container {
+            > .container-inner {
+                > .toolbox-element:last-child:not(.force-margin) {
+                    @if $content-gap-debug == false {
+                        margin-bottom: 0;
+                    } @else {
+                        border-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    // columns: last column element no margin!
+    &.toolbox-columns {
+        .toolbox-column {
+            > .toolbox-element:last-child:not(.force-margin) {
+                @if $content-gap-debug == false {
+                    margin-bottom: 0;
+                } @else {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+
+    // columns: last column element no margin but teaser!
+    &.toolbox-columns {
+        .toolbox-column {
+            > .toolbox-element.toolbox-teaser:last-child:not(.force-margin) {
+                @if $content-gap-debug == false {
+                    margin-bottom: $grid-gutter-width;
+                } @else {
+                    border-bottom: $grid-gutter-width;
+                }
+            }
+        }
+    }
+
+    // accordion, mobile accordion: last column element no margin!
+    &.toolbox-accordion.component-accordion,
+    &.toolbox-accordion.component-mobile-accordion {
+        .card-body {
+            > .toolbox-element:last-child:not(.force-margin) {
+                @if $content-gap-debug == false {
+                    margin-bottom: 0;
+                } @else {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+
+    // tabs: last column element no margin!
+    &.toolbox-accordion.component-tab {
+        .tab-pane {
+            > .toolbox-element:last-child:not(.force-margin) {
+                @if $content-gap-debug == false {
+                    margin-bottom: 0;
+                } @else {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+
+    //column slider: last column slide element no margin!
+    &.toolbox-slide-columns {
+        .slide-column {
+            > .toolbox-element:last-child:not(.force-margin) {
+                @if $content-gap-debug == false {
+                    margin-bottom: 0;
+                } @else {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+
+    // toolbox content: remove padding from last paragraph
+    // note: .wysiwyg-field is a custom class name and is not related to toolbox - use it for your custom wysiwyg fields.
+    // note: the paragraph is not a part of the gap watcher!
+    .toolbox-content, .wysiwyg-field {
+        > p:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

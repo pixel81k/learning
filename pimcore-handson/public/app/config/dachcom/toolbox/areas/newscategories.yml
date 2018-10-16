@@ -1,0 +1,8 @@
+services:
+    AppBundle\Document\Areabrick\NewsCategories:
+        parent: ToolboxBundle\Document\Areabrick\AbstractAreabrick
+        calls:
+            - [setAreaBrickType, ['external']]
+        tags:
+            - { name: pimcore.area.brick, id: newscategories }
+

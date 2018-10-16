@@ -1,0 +1,69 @@
+metadata:
+    name: pimcore-handson
+    sitename: Handson Manuel
+    description: ~
+    keywords: ~
+    phpVersion: php70
+    npmVersion: 5.6.0
+    domain: basistemplate.dachcom.com
+    technology:
+        name: pimcore
+        version: 5.1.3
+    shared_dirs:
+        '/public/web/var/': '/public/web/var/'
+        '/public/var/bundles/': '/public/var/bundles/'
+        '/public/var/recyclebin/': '/public/var/recyclebin/'
+        '/public/var/versions/': '/public/var/versions/'
+    htaccess:
+        htusers:
+            dachcom: digital
+        ignoreAlias: ~
+        path: ~
+development:
+    local: true
+    hostname: 127.0.0.1
+    deploy_path: .
+    alias:
+        - basistemplate.test
+        - localhost
+        - localhost:8080
+        - 192.168.99.100
+    database:
+        host: 10.0.1.75
+        name: db_pimcore_handson
+        user: dachcom
+        password: Z3pNwVFjKb5yHDGq
+integration:
+    hostname: delta.dachcom.local
+    user: www-data
+    deploy_path: /var/dev/www/pimcore-basistemplate
+    bin/php: /usr/bin/php7.2
+    alias: ~
+    database:
+        host: db2.dachcom.local
+        name: db_basistemplate_pimcore_integration
+        user: dachcom
+        password: Z3pNwVFjKb5yHDGq
+#staging:
+#    hostname: dachcom6.nine.ch
+#    user: www-basistemplate
+#    deploy_path: /home/www-basistemplate/staging.basistemplate.dachcom.com
+#    bin/php: /usr/bin/php7.2
+#    alias: ~
+#    database:
+#        host: localhost
+#        name: db_basistemplate_pimcore_staging
+#        user: basistemplate_usr
+#        password: nUr97LQWgYMd
+#production:
+#    hostname: localhost
+#    user: www-basistemplate
+#    deploy_path: /home/www-basistemplate/basistemplate.dachcom.com
+#    bin/php: /usr/bin/php7.2
+#    backupPath: /home/www-basistemplate/backup.basistemplate.dachcom.com
+#    alias: ~
+#    database:
+#        host: dachcom6.nine.ch
+#        name: db_basistemplate_pimcore_production
+#        user: basistemplate_usr
+#        password: nUr97LQWgYMd

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale|replace({'_' : '-'}) }}">
+
+<head>
+    {% if document.getProperty('canonicalDocument') %}
+        <link rel="canonical"
+              href="{{ app.request.getSchemeAndHttpHost() ~ document.getProperty('canonicalDocument').getFullPath() }}"/>
+    {% else %}
+        <link rel="canonical" href="{{ app.request.getSchemeAndHttpHost() ~ document.getFullPath() }}"/>
+
+    {% endif %}
+    {% include 'Includes/Page/head.html.twig' %}
+</head>
+
+<body>
+
+<!-- main-content -->
+{{ block('layout') }}
+<!-- /main-content -->
+
+
+{% block javascripts %}
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBrNrKQZhNO9Mrefxp2xmPTR4oG8yc8ERw">
+    </script>
+    <script src="{{ asset('static/js/main-footer-bundle.js') }}" type="text/javascript"></script>
+{% endblock %}
+
+</body>
+</html>

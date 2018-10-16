@@ -1,0 +1,63 @@
+// Font Path
+$font-path: "../fonts";
+$fa-font-path: $font-path;
+
+// Dachcom Content Gaps
+//
+// @see https://wiki.dachcom.net/display/TP/DACHCOM+Gap+Watcher
+$content-gap-debug: false;
+
+$content-gap: (
+        xs: $grid-gutter-width*1,
+        ty: $grid-gutter-width*1.5,
+        sm: $grid-gutter-width*2,
+        md: $grid-gutter-width*2,
+        lg: $grid-gutter-width*2.5,
+        xl: $grid-gutter-width*2.5
+) !default;
+
+// Base template variables //
+/////////////////////////////
+
+// Header
+$dd-logo-heigth: 65px;
+$dd-header-bg: $white;
+$dd-header-padding-y: $spacer;
+$dd-hnav-font-weight: 400;
+$dd-hnav-color: $body-color;
+$dd-hnav-color-hover: $primary;
+
+// Sidebar
+$dd-snav-lv1-bg: $gray-300;
+$dd-snav-lv1-color: $body-color;
+
+$dd-snav-lv1-bg-hover: $gray-500;
+$dd-snav-lv1-color-hover: $body-color;
+
+$dd-snav-color: $body-color;
+$dd-snav-color-hover: $primary;
+
+// Content
+$dd-content-bg: $white;
+
+// Toolbox
+$dd-container-bg: $gray-300;
+
+// Footer
+$dd-footer-bg: $gray-700;
+$dd-footer-color: $white;
+$dd-footer-sec-bg: $gray-900;
+$dd-footer-sec-color: $white;
+$dd-footer-social-color: $white;
+
+// Mobile Navigation
+$dd-burger-color: $primary;
+
+$dd-mnav-lv1-bg: $gray-300;
+$dd-mnav-lv1-color: $primary;
+$dd-mnav-lv1-bg-hover: $white;
+$dd-mnav-lv1-color-hover: $primary;
+
+$dd-mnav-bg: $gray-800;
+$dd-mnav-color: $white;
+$dd-mnav-color-hover: $primary;

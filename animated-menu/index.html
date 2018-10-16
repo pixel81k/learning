@@ -1,0 +1,172 @@
+<html>
+    <head>
+        <style media="screen">
+            body {
+                background-color: #fdfdfd;
+                font-family: Helvetica, sans-serif;
+            }
+
+            .menu {
+                position: fixed;
+                top: 20px;
+                right: 5px;
+                background: transparent;
+            }
+
+            .btn {
+                position: absolute;
+                top: 0;
+                right: 0;
+                background: darkslategray;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                transition: 0.5s;
+            }
+
+            .btn:focus {
+                outline: 0;
+            }
+
+            .btn .sign {
+                content: '+';
+                color: white;
+                font-size: 4em;
+                position: relative;
+                top: -12px;
+                right: 1px;
+            }
+
+            .btn.open {
+                background-color: transparent;
+                color: yellow;
+                border: 0;
+                transform: rotateZ(-405deg);
+            }
+
+            .menu-content {
+                transition: 0.5s;
+                background: white;
+                color: darkslategray;
+                box-shadow: 0 10px 50px -10px rgba(0, 0, 0, 0.5);
+                padding: 0;
+                border: 1px solid gray;
+                opacity: 0;
+                border-radius: 20px 20px 10px 10px;
+                clip-path: circle(0% at 90% 20px);
+            }
+
+            .menu-content.open {
+                width: max-content;
+                opacity: 1;
+                overflow: visible;
+                clip-path: circle(170% at 90% 20px);
+            }
+
+            h3 {
+                background-color: rgb(255, 128, 0);
+                border-top-left-radius: 19.5px;
+                border-top-right-radius: 19.5px;
+                color: white;
+                padding: 10px 50px 10px 10px;
+                margin: 0;
+            }
+
+            li {
+                list-style: none;
+                padding-left: 20px;
+                margin: 0;
+                margin-left: -40px;
+                line-height: 2.5em;
+            }
+
+            li a {
+                color: darkslategray;
+            }
+
+            li .icon {
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                margin: 0;
+                margin-right: 7px;
+                margin-bottom: -3px;
+                background: transparent;
+            }
+
+            li:hover {
+                cursor: pointer;
+                background-color: rgba(255, 0, 0, 0.1);
+            }
+
+            .icon.dachcom {
+                content: url("icons/dachcom.png");
+            }
+
+            .icon.twitter {
+                content: url("icons/twitter.png");
+            }
+
+            .icon.bluewin {
+                content: url("icons/bluewin.png");
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <div class="menu">
+            <div class="menu-content">
+                <h3>Choose...</h3>
+                <ul class="menuitems">
+                </ul>
+            </div>
+            <button class="btn"><span class="sign">+</span></button>
+        </div>
+
+        <script language="JavaScript">
+            // example data - key is name for iconclass and displayed as link
+            let links = {
+                'dachcom': 'https://www.dachcom.ch',
+                'twitter': 'https://www.twitter.com',
+                'bluewin': 'https://www.bluewin.ch'
+            };
+
+            let menuitem_container = links; // assign your data
+
+            let btn = document.querySelector(".btn");
+            let menu = document.querySelector(".menu-content");
+            let menuitems = document.querySelector(".menuitems");
+
+            Object.entries(menuitem_container).map(([key, value]) =>{
+                let entry = document.createElement("li");
+                let icon = document.createElement("span");
+                let content = document.createElement("a");
+                content.href = value;
+                content.target = '_blank';
+                content.text=key;
+
+                content.addEventListener("click", () => { toggleMenu();})
+
+                icon.classList.add("icon");
+                icon.classList.add(key);
+
+                entry.appendChild(icon);
+                entry.appendChild(content);
+
+                menuitems.appendChild(entry);
+            });
+
+            btn.addEventListener("click", () => {
+                toggleMenu();
+            })
+
+            function toggleMenu() {
+                btn.classList.toggle("open");
+                menu.classList.toggle("open");
+            }
+        </script>
+    </body>
+
+
+</html>

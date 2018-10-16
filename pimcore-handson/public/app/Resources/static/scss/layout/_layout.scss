@@ -1,0 +1,56 @@
+html, body {
+    position: relative;
+    min-height: 100%;
+}
+
+.dd-content-color {
+    background: $dd-content-bg;
+}
+
+.dd-breadcrumb {
+    display: none;
+    @include media-breakpoint-up(md) {
+        display: block;
+        font-size: smaller;
+        padding: $spacer*2 0;
+    }
+}
+
+.dd-error-wrapper {
+    .dd-error-text-small {
+        font-family: $headings-font-family;
+        font-size: 35px;
+        line-height: .5em;
+        margin-top: 1em;
+    }
+    .dd-error-text {
+        font-family: $headings-font-family;
+        font-size: 100px;
+        line-height: 1em;
+        margin-bottom: $spacer;
+    }
+}
+
+.dd-sitemap-wrapper {
+    padding-bottom: $spacer*2;
+
+    ul.dd-sitemap {
+        ul {
+            padding-left: $spacer;
+        }
+
+        li {
+            a {
+                display: block;
+                padding: $spacer*.5 0;
+                border-bottom: 1px solid $gray-400;
+                color: $black;
+
+                &:hover, &:focus {
+                    color: $primary;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

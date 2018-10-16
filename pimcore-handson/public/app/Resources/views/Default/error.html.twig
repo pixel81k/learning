@@ -1,0 +1,18 @@
+{% extends 'Base/content/nosnav.html.twig' %}
+
+{% block action %}
+
+    <div class="dd-error-wrapper">
+
+        <div class="dd-error-text-small">
+            {{ pimcore_input('error_small') }}
+        </div>
+        <div class="dd-error-text">
+            {{ pimcore_input('error') }}
+        </div>
+
+        {{ pimcore_areablock('contentBlock', toolbox_areablock_config('contentBlock')) }}
+
+    </div>
+
+{% endblock %}

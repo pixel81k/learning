@@ -1,0 +1,10 @@
+{% import '@Toolbox/Macro/wrap.html.twig' as wrap_macro %}
+
+{{ elementConfigBar|raw }}
+
+{{ wrap_macro.createWrapHead(elementThemeConfig) }}
+    <h4>{{ 'news.available_categories' | trans }}</h4>
+    {% for cat in categories %}
+        <a class="btn btn-outline-info btn-light" href="{{ cat.link }}" alt="{{ cat.text }}">{{ cat.text }}</a>
+    {% endfor %}
+{{ wrap_macro.createWrapFoot(elementThemeConfig) }}

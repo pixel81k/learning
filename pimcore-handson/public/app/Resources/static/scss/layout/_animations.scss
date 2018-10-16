@@ -1,0 +1,10 @@
+@keyframes zoomOut {
+    from {
+        transform: scale(1.2, 1.2);
+        transform-origin: 50% 0;
+    }
+    to {
+        transform: scale(1.0, 1.0);
+        transform-origin: 50% 50%;
+    }
+}

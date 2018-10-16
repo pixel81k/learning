@@ -1,0 +1,123 @@
+html {
+    padding-bottom: 0;
+
+    &:after {
+        display: none;
+    }
+}
+
+.t-row .toolbox-element:not(.toolbox-headline) {
+    margin-bottom: 0;
+}
+
+/**
+    Brick Data for your custom Area Elements.
+    check README.MD for further instructions.
+**/
+.dd-area {
+    position:relative;
+}
+
+/*
+    Snippet Configuration Fields
+*/
+.snippet-config-block {
+    margin:10px;
+    background: #f8f8f8;
+    border:1px solid #eee;
+    padding:10px;
+    font-size:12px;
+    width:100%;
+    display: block;
+    overflow: hidden;
+
+    .block {
+        display:block;
+        float:left;
+        max-width: 30%;
+        padding-right:10px;
+        padding-bottom: 99999px;
+        margin-bottom: -99999px;
+        margin-right:10px;
+        border-right:1px dashed #d0d0d0;
+
+        &:last-child {
+            margin-right:0;
+            border-right:1px dashed transparent;
+        }
+
+        label {
+            font-family:'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+            font-weight:bold;
+            font-size:12px;
+            color:black;
+            display:block;
+        }
+
+        .element {
+            font-family:'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+            font-weight:normal;
+            font-size:12px;
+            display:block;
+
+            &.preview {
+                img {
+                    border:1px solid grey;
+                }
+            }
+        }
+
+        .description {
+            display:block;
+            background:#eee;
+            border:1px solid #c7c7c7;
+            color:#4e4e4e;
+            font-family:'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+            font-weight:normal;
+            font-size:11px;
+            line-height: 17px;
+            margin:5px 0;
+            padding:5px;
+        }
+    }
+
+}
+
+
+/**
+
+    Add your Backend Styles Here!
+
+**/
+
+/* Toolbox */
+.toolbox-headline a[id]:before,
+a.toolbox-anchor[id]:before {
+    display:none;
+}
+
+.toolbox-video {
+    padding-bottom: 0;
+
+    .embed-responsive {
+
+        &:before {
+            padding-top: 0;
+        }
+
+    }
+
+    iframe {
+        position: inherit;
+    }
+
+}
+
+
+header.fixed-top {
+    position: static;
+}
+
+.slick-slider {
+     opacity: 1;
+ }

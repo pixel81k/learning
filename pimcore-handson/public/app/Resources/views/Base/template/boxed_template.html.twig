@@ -1,0 +1,48 @@
+{% extends 'Base/template/default_template.html.twig' %}
+
+{% block layout %}
+
+    <div class="boxed-container">
+
+        <div class="dd-header-color container">
+            <header id="header" class="dd-header">
+                {% include 'Includes/header.html.twig' %}
+            </header>
+        </div>
+
+        <div class="dd-content-color container p-0">
+            {% if document.getProperty('use_header_content') %}
+                <div class="dd-header-content ">
+                    {{ pimcore_renderlet('header_content', {
+                        'controller': 'content',
+                        'action': 'headerContent',
+                        'title': 'Drop an image or a slider object to create the header content',
+                        'height': 300,
+                        'reload': true
+                    }) }}
+                </div>
+            {% endif %}
+        </div>
+
+
+        <div class="dd-content-color container">
+            <main id="dd-main-content">
+                {{ block('content') }}
+            </main>
+        </div>
+
+        <div class="dd-footer-color container">
+            <footer id="footer" class="dd-footer">
+                {% include 'Includes/footer.html.twig' %}
+            </footer>
+        </div>
+
+        <div class="dd-footer-sec-color container">
+            <footer id="footer-sec" class="dd-footer-sec">
+                {% include 'Includes/footer_sec.html.twig' %}
+            </footer>
+        </div>
+
+    </div>
+
+{% endblock %}

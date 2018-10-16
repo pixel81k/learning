@@ -1,0 +1,65 @@
+{% import '@Toolbox/Macro/wrap.html.twig' as wrap_macro %}
+
+{{ elementConfigBar|raw }}
+
+    {{ wrap_macro.createWrapHead(elementThemeConfig) }}
+
+    {% for entry in paginator.getCurrentItems %}
+        <div class="toolbox-news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        {% if entry.pictures is defined and entry.pictures|length > 0 %}
+                            {{ entry.pictures.0.getThumbnail("news_list").getHtml|raw }}
+                        {% else %}
+                            <p>{{ entry.title }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-8">{{ entry.teaser }} <a class="float-right btn btn-outline-info btn-light"
+                                                                href="{{ entry.getClass.getLinkGenerator.generate(entry) }}"
+                                                                title="{{ 'news.list_read_more'|trans }}">{{ 'news.list_read_more'|trans }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+
+    {% block news_entries_paginator %}
+
+        {% set pages = paginator.getPages('Sliding') %}
+
+        {% if pages.pageCount > 0 %}
+            <ul class="pagination news-ul">
+
+                {% if pages.previous is defined %}
+                    <li class="first">
+                        <a href="{{ pimcore_url({ (page_key): pages.first }) }}">&laquo;</a>
+                    </li>
+                {% endif %}
+
+                {% for page in pages.pagesInRange %}
+                    {% if (pages.first < page) and (page < pages.last) or page == pages.current %}
+                        {% set class = page == pages.current ? 'active' %}
+                        <li{% if class is not empty %} class="{{ class }}"{% endif %}>
+                            <a href="{{ pimcore_url({ (page_key): page }) }}">{{ page }}</a>
+                        </li>
+                    {% endif %}
+
+                {% endfor %}
+
+                {% if pages.next is defined %}
+
+                    <li class="last">
+                        <a href="{{ pimcore_url({ (page_key): pages.last }) }}">&raquo;</a>
+                    </li>
+
+                {% endif %}
+
+            </ul>
+
+        {% endif %}
+
+    {% endblock news_entries_paginator %}
+
+{{ wrap_macro.createWrapFoot(elementThemeConfig) }}

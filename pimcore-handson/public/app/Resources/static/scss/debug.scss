@@ -1,0 +1,72 @@
+$screen-xs-min: 320px;
+$screen-ty-min: 480px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+$screen-xl-min: 1600px;
+
+html {
+    padding-bottom: 20px;
+    &:after {
+        content: 'ERROR 204';
+        position: fixed;
+        height: 20px;
+        line-height: 20px;
+        color: white;
+        font-size: 15px;
+        background: black;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 999999;
+        opacity: 0.5;
+        text-align: center;
+        overflow: hidden;
+        pointer-events: none;
+        -webkit-pointer-events: none;
+    }
+}
+
+@media (min-width: $screen-xs-min) {
+    html:after {
+        background: #00793e;
+        content: 'XS';
+    }
+}
+
+@media screen and (min-width: $screen-ty-min) {
+    html:after {
+        background: saddlebrown;
+        content: 'TY';
+    }
+}
+
+@media screen and (min-width: $screen-sm-min) {
+    html:after {
+        background: red;
+        content: 'SM';
+    }
+}
+
+@media screen and (min-width: $screen-md-min) {
+    html:after {
+        background: blue;
+        content: 'MD';
+    }
+}
+
+@media screen and (min-width: $screen-lg-min) {
+    html:after {
+        background: yellow;
+        content: 'LG';
+        color: black;
+    }
+}
+
+@media screen and (min-width: $screen-xl-min) {
+    html:after {
+        background: violet;
+        content: 'XL';
+        color: black;
+    }
+}

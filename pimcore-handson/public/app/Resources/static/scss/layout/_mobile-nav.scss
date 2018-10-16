@@ -1,0 +1,164 @@
+.dd-sidr {
+    opacity: 0;
+    height: 0;
+
+    .sidr-init & {
+        opacity: 1;
+        height: 100%;
+    }
+
+    background: $dd-mnav-bg;
+    color: $dd-mnav-color;
+
+    a {
+        color: $dd-mnav-color;
+
+        &:hover, &:focus, &:active, &.active {
+            color: $dd-mnav-color-hover;
+        }
+    }
+
+    .dd-mnav {
+
+        a {
+            display: block;
+            color: $dd-mnav-color;
+            text-decoration: none;
+
+            &.active:not(.active-trail), &:hover, &:focus, &:active {
+                color: $primary;
+                text-decoration: none;
+            }
+        }
+
+        > ul {
+            > li {
+
+                > .dd-mnav-lv1-item {
+                    padding: $spacer*.5 $spacer;
+                    background: $dd-mnav-lv1-bg;
+                    margin-bottom: 1px;
+                    position: relative;
+                    transition: background .4s;
+
+                    a {
+                        color: $dd-mnav-lv1-color;
+                    }
+
+                    &.active, &:hover {
+                        background: $dd-mnav-lv1-bg-hover;
+
+                        a {
+                            color: $dd-mnav-lv1-color-hover;
+                        }
+                    }
+                }
+
+                &.has-child {
+
+                    > .dd-mnav-lv1-item {
+                        padding-right: 30px;
+
+                        &:after {
+                            position: absolute;
+                            right: 10px;
+                            @include dachcom-vertical-center();
+                            @include fa-icon;
+                            content: "\f078";
+                            color: $dd-mnav-lv1-color;
+                        }
+                        &.open {
+                            &:after {
+                                content: "\f077";
+                            }
+                        }
+                    }
+
+
+                    ul {
+                        padding: $spacer*.5 $spacer;
+
+                        li {
+                            padding: 3px 0;
+
+                            a {
+                                line-height: 1.2;
+                            }
+                        }
+                    }
+
+                    > ul {
+                        display: none;
+                    }
+
+                }
+
+            }
+
+        }
+    }
+
+    .dd-gnav-mobile {
+        a {
+            &, &:focus, &:hover, &:active {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.dd-burger {
+    margin-top: .2em;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+
+    span {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background: $dd-burger-color;
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+    }
+
+    span:nth-child(1) {
+        top: 0;
+    }
+
+    span:nth-child(2), span:nth-child(3) {
+        top: 10px;
+    }
+
+    span:nth-child(4) {
+        top: 20px;
+    }
+
+    .sidr-mobile-nav-open & {
+        span:nth-child(1) {
+            top: 10px;
+            width: 0;
+            left: 50%;
+        }
+        span:nth-child(2) {
+            transform: rotate(45deg);
+        }
+
+        span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+
+        span:nth-child(4) {
+            top: 10px;
+            width: 0;
+            left: 50%;
+        }
+    }
+}

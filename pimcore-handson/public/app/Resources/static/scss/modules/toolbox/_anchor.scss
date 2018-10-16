@@ -1,0 +1,23 @@
+a.toolbox-anchor[id] {
+
+    display: inline-block;
+    position: relative;
+
+    /*
+
+    Activate this, if you have a static header to add a padding to anchor headlines.
+
+    &:before {
+      width:0;
+      display: block;
+      content: " ";
+      margin-top: -175px;
+      height: 175px;
+      visibility: hidden;
+      z-index: -1;
+    }
+
+  */
+
+
+}

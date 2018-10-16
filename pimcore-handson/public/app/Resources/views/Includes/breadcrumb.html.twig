@@ -1,0 +1,24 @@
+{#
+Breadcrumb Example:
+
+{% include 'includes/breadcrumb.html.twig' with {
+    'append_links' : [
+        { 'name': 'New Item', 'link': '/new-item' }
+]} %}
+
+#}
+
+<div class="row">
+    <div class="col-12">
+
+        {% set hnav = dachcom_menu_extend_breadcrumb(pimcore_build_nav(document, dachcom_menu_start_node(document))) %}
+
+        <nav aria-label="breadcrumb">
+            {{ pimcore_render_nav(hnav, 'bootstrap_breadcrumbs', 'renderBreadcrumbs', {
+                'prependLinks': prepend_links|default([{'name': 'Home', 'link': document.getProperty('page_start_node').fullPath}]),
+                'appendLinks': append_links|default([])
+            }) }}
+        </nav>
+
+    </div>
+</div>

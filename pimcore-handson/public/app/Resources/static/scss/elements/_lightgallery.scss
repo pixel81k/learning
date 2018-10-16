@@ -1,0 +1,15 @@
+.light-box .item {
+    cursor: pointer;
+}
+
+.lg-backdrop {
+    background: $white;
+}
+
+.lg-outer .lg-item {
+    background: url('/static/images/interfaces/loading.gif') no-repeat scroll center center transparent;
+}
+
+.lg-actions .lg-next, .lg-actions .lg-prev, #lg-counter, .lg-toolbar .lg-icon {
+    color: $white;
+}

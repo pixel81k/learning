@@ -1,0 +1,48 @@
+{% use 'Includes/Editmode/snippet_layout.html.twig' %}
+
+{{ block('editmode_header') }}
+
+<div class="row">
+    <div class="col-12 col-md-9">
+
+        {% set fnav = pimcore_build_nav(document, dachcom_menu_start_node(document, 'fnav_start_node', false)) %}
+        {% if not fnav is empty %}
+            <nav class="dd-fnav">
+                {{ pimcore_render_nav(fnav, 'menu', 'renderTemplate', 'Includes/Navigation/fnav.html.twig') }}
+            </nav>
+        {% endif %}
+
+    </div>
+    <div class="col-12 col-md-3">
+
+        <span class="dd-footer-title">{{ pimcore_input('dd_footer_address_title') }}</span>
+        <address>
+            {{ pimcore_wysiwyg('dd_footer_address', {'width' : '100%', 'customConfig' : '/admin/toolbox-ckeditor-style.js'}) }}
+        </address>
+
+        <ul class="list-unstyled dd-social-links clearfix">
+            {% for i in pimcore_iterate_block(pimcore_block('dd_social_links', {'limit' : 6})) %}
+                <li>
+                    {% if editmode %}
+                        {{ pimcore_select('icon', {
+                            'store' : [
+                            ['dd-facebook fa fa-facebook-f', 'Facebook'],
+                            ['dd-twitter fa fa-twitter', 'Twitter'],
+                            ['dd-linkedin fa fa-linkedin', 'LinkedIn'],
+                            ['dd-xing fa fa-xing', 'Xing'],
+                            ['dd-youtube fa fa-youtube', 'Youtube'],
+                            ['dd-google fa fa-google-plus', 'Goolge+']
+                            ]}) }}
+                        {{ pimcore_input('link', {'width' : '200'}) }}
+                    {% else %}
+                        <a href="{{ pimcore_input('link') }}" class="{{ pimcore_select('icon') }}" target="_blank"></a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+</div>
+
+
+{{ block('editmode_footer') }}

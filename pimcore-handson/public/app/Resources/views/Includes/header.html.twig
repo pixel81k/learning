@@ -1,0 +1,62 @@
+{% set hnav = pimcore_build_nav(document, dachcom_menu_start_node(document)) %}
+{% set gnav = pimcore_build_nav(document, dachcom_menu_start_node(document, 'gnav_start_node', false)) %}
+
+<div class="row">
+    <div class="col-3">
+        <a class="dd-logo" href="{{ document.getProperty('page_start_node') }}">
+            {% if pimcore_website_config('base_logo') is not empty %}
+                <img src="{{ asset(pimcore_website_config('base_logo').getFullPath()) }}">
+            {% else %}
+                <img src="{{ asset('static/images/interfaces/logo.svg') }}">
+            {% endif %}
+        </a>
+    </div>
+    <div class="col-9">
+        <div class="row">
+            <div class="col-12">
+                <div id="sidr-mobile-nav" class="dd-sidr">
+                    {% if not hnav is empty %}
+                        <nav class="dd-mnav">
+                            {{ pimcore_render_nav(hnav, 'menu', 'renderTemplate', 'Includes/Navigation/mnav.html.twig') }}
+                        </nav>
+                    {% endif %}
+                    {% if not gnav is empty %}
+                        <nav class="dd-gnav-mobile">
+                            {{ pimcore_render_nav(gnav, 'menu', 'renderMenu', {
+                                maxDepth: 0,
+                                ulClass: 'list-unstyled clearfix'
+                            }) }}
+                        </nav>
+                    {% endif %}
+                </div>
+
+                {% if i18n_context('getActiveLanguages') %}
+                    <nav class="dd-lnav">
+                        <select>
+                            {% for language in i18n_context('getActiveLanguages') %}
+                                <option {{ (i18n_context('getCurrentLanguageIso') == language.iso) ? 'selected' }}
+                                        value="{{ language.linkedHref }}">{{ language.iso|upper }}</option>
+                            {% endfor %}
+                        </select>
+                    </nav>
+                {% endif %}
+
+                {% if not gnav is empty %}
+                    <nav class="dd-gnav">
+                        {{ pimcore_render_nav(gnav, 'menu', 'renderMenu', {
+                            maxDepth: 0,
+                            ulClass: 'list-unstyled clearfix'
+                        }) }}
+                    </nav>
+                {% endif %}
+            </div>
+            <div class="col-12">
+                {% if not hnav is empty %}
+                    <nav class="dd-hnav">
+                        {{ pimcore_render_nav(hnav, 'menu', 'renderTemplate', 'Includes/Navigation/hnav.html.twig') }}
+                    </nav>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

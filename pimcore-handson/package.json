@@ -1,0 +1,45 @@
+{
+  "name": "pimcore-node-project",
+  "version": "0.0.1",
+  "description": "",
+  "private": true,
+  "cacheDirectories": [
+    "node_modules"
+  ],
+  "devDependencies": {
+    "bootstrap": "^4.0.0",
+    "del": "^2.2.2",
+    "font-awesome": "^4.7.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-combine-mq": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-flatten": "^0.3.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-modernizr": "^1.0.0-alpha",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.5.1",
+    "gulp-svgmin": "^1.2.4",
+    "gulp-uglify": "^2.1.2",
+    "jquery": "^3.2.1",
+    "jquery-doubletaptogo": "^3.0.1",
+    "jquery-match-height": "^0.7.2",
+    "lightgallery": "^1.6.7",
+    "picturefill": "^3.0.2",
+    "popper.js": "^1.13.0",
+    "run-sequence": "^1.2.2",
+    "slick-carousel": "^1.8.0",
+    "stapes": "^1.0.0",
+    "sidr": "^2.2.1"
+  },
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp build"
+  }
+}

@@ -1,0 +1,83 @@
+######################
+# Compiled source    #
+######################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+######################
+# Packages           #
+######################
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+
+######################
+# Logs and databases #
+######################
+*.log
+
+######################
+# Global             #
+######################
+.DS_*
+._*
+.idea
+.cache/
+.config/
+ehthumbs.db
+Thumbs.db
+node_modules
+.composer
+.bash_history
+.viminfo
+
+
+######################
+# Pimcore            #
+######################
+/public_var/*
+!/public_var/.gitkeep
+
+/public/install.php
+/public/install-profiles-installed
+/public/doc
+/public/lib
+
+/public/var/*
+!/public/var/.gitkeep
+!/public/var/config
+/public/var/config/debug-mode.php
+/public/var/config/GeoLite2-City.mmdb
+/public/var/config/portal/*
+
+!/public/var/logs/.gitkeep
+
+!/public/var/classes/
+/public/var/classes/*
+!/public/var/classes/.gitkeep
+!/public/var/classes/definition*.php
+!/public/var/classes/objectbricks
+!/public/var/classes/fieldcollections
+
+/public/bin/*
+!/public/bin/.gitkeep
+
+/public/pimcore
+/public/vendor
+/public/web/pimcore
+/public/web/var
+/public/web/static
+/public/web/bundles
+/public/web/app.php
+
+/public/app/Resources/public/*
+!/public/app/Resources/public/.gitkeep
+/public/app/config/**/*.example**.php

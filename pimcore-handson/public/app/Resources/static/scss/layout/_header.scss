@@ -1,0 +1,124 @@
+.dd-header-color {
+    background: $dd-header-bg;
+}
+
+.dd-header-content {
+    overflow: hidden;
+}
+
+.dd-header {
+    padding: $spacer 0;
+    position: relative;
+
+    .dd-logo {
+        display: block;
+        height: $dd-logo-heigth;
+
+        @include media-breakpoint-up(md) {
+            height: 75px;
+        }
+
+        img {
+            height: 100%;
+            width: auto;
+
+            @include media-breakpoint-down(ty) {
+                max-width: 165px;
+            }
+
+        }
+    }
+
+    .dd-hnav {
+        display: none;
+        @include media-breakpoint-up(md) {
+            display: block;
+        }
+
+        margin-top: $spacer;
+        float: right;
+
+        li {
+            float: left;
+            margin-left: $spacer*1.5;
+
+            a {
+                font-size: larger;
+                color: $dd-hnav-color;
+                font-weight: $dd-hnav-font-weight;
+                text-decoration: none;
+                text-transform: uppercase;
+
+                &:hover, &:focus, &:active, &.active {
+                    text-decoration: none;
+                    color: $dd-hnav-color-hover;
+                }
+            }
+        }
+    }
+
+    .dd-lnav {
+        float: right;
+        margin-left: $spacer;
+
+        @include media-breakpoint-down(sm) {
+            margin-top: .7em;
+        }
+
+        select {
+            background: url('/static/images/interfaces/select-arrow.svg') center right no-repeat;
+            border-radius: 0;
+            border: 1px solid transparent;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+            outline: 0;
+            padding: 0 18px 0 0;
+            font-size: smaller;
+        }
+
+        select::-ms-expand {
+            display: none;
+        }
+    }
+
+    .dd-gnav {
+        display: none;
+        @include media-breakpoint-up(md) {
+            display: block;
+        }
+
+        float: right;
+
+        li {
+            float: left;
+            a {
+                margin-left: $spacer;
+                font-size: smaller;
+            }
+        }
+    }
+
+    .dd-gnav-mobile {
+        font-size: smaller;
+        padding: $spacer*.5 $spacer;
+        margin-top: $spacer;
+
+        a {
+            display: block;
+        }
+    }
+
+    .dd-mobile-nav-button {
+        display: none;
+        @include media-breakpoint-down(sm) {
+            margin-left: $spacer;
+            display: block;
+            float: right;
+            padding: .5em;
+            cursor: pointer;
+            font-size: 20px;
+        }
+    }
+}

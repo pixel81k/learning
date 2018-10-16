@@ -1,0 +1,99 @@
+// Node Modules
+@import "slick-carousel/slick/slick.scss";
+@import "lightgallery/src/sass/lightgallery.scss";
+@import "font-awesome/scss/font-awesome.scss";
+@import "sidr/src/scss/jquery.sidr.bare.scss";
+
+// Bootstrap4 functions
+@import "bootstrap/scss/functions";
+// Custom Bootstrap4 variables
+@import "./variables";
+// Bootstrap4 variables
+@import "bootstrap/scss/variables";
+// Bootstrap4 components
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/print";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/code";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+//@import "bootstrap/scss/dropdown";
+//@import "bootstrap/scss/button-group";
+//@import "bootstrap/scss/input-group";
+@import "bootstrap/scss/custom-forms";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/pagination";
+//@import "bootstrap/scss/badge";
+//@import "bootstrap/scss/jumbotron";
+@import "bootstrap/scss/alert";
+//@import "bootstrap/scss/progress";
+//@import "bootstrap/scss/media";
+//@import "bootstrap/scss/list-group";
+//@import "bootstrap/scss/close";
+//@import "bootstrap/scss/modal";
+//@import "bootstrap/scss/tooltip";
+//@import "bootstrap/scss/popover";
+//@import "bootstrap/scss/carousel";
+@import "bootstrap/scss/utilities";
+
+// Base Template Variables
+@import "./variables-base";
+
+
+// Bootstrap extensions, overrides
+@import "./layout/bootstrap-extensions";
+
+// Mixins
+@import "./mixins/mixins";
+
+// Styletile
+@import "./styletile";
+
+// Fonts
+@import "./fonts/fonts";
+@import "./fonts/iconfont";
+
+// Layout
+@import "./layout/animations";
+@import "./layout/layout";
+@import "./layout/typography";
+@import "./layout/header";
+@import "./layout/footer";
+@import "./layout/sidebar";
+@import "./layout/mobile-nav";
+
+// Elements
+@import "./elements/form";
+@import "./elements/lightgallery";
+@import "./elements/file-uploader";
+@import "./elements/slider";
+
+// Toolbox
+@import "./modules/toolbox/gaps";
+@import "./modules/toolbox/accordion";
+@import "./modules/toolbox/anchor";
+@import "./modules/toolbox/columns";
+@import "./modules/toolbox/container";
+@import "./modules/toolbox/content";
+@import "./modules/toolbox/downloads";
+@import "./modules/toolbox/gallery";
+@import "./modules/toolbox/google-map";
+@import "./modules/toolbox/headline";
+@import "./modules/toolbox/image";
+@import "./modules/toolbox/linklist";
+@import "./modules/toolbox/parallax-container";
+@import "./modules/toolbox/slide-columns";
+@import "./modules/toolbox/spacer";
+@import "./modules/toolbox/teaser";
+@import "./modules/toolbox/video";
+
+// Partial (custom area brick for handson)
+@import "./partials/news";

@@ -1,0 +1,18 @@
+form_builder:
+    form:
+        field:
+            templates:
+                default:
+                    value: 'col-12'
+                    label: 'form_builder_type_template.full'
+                    default: true
+                half:
+                    value: 'col-12 col-sm-6'
+                    label: 'form_builder_type_template.half'
+                    default: false
+
+        templates:
+            form_div_layout: ~
+            bootstrap_3_layout: ~
+            bootstrap_3_horizontal_layout: ~
+            bootstrap_4_horizontal_layout: ~

@@ -1,0 +1,94 @@
+{
+    "name": "dachcom/pimcore-basistemplate",
+    "type": "project",
+    "require": {
+        "php": ">=7.1",
+        "pimcore/pimcore": "5.3.0",
+        "dachcom-digital/i18n": "~2.3.0",
+        "dachcom-digital/emailizr": "~1.0.0",
+        "dachcom-digital/formbuilder": "~2.3.0",
+        "dachcom/deployer": "~1.1.0",
+        "dachcom-digital/monitoring": "^2.0",
+        "dachcom-digital/toolbox": "dev-master"
+    },
+    "require-dev": {
+        "cache/integration-tests": "^0.15.0",
+        "codeception/codeception": "2.2.*"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./lib/pimcore-monitoring"
+        },
+        {
+            "type": "composer",
+            "url": "https://packages.dachcom.net/",
+            "options": {
+                "ssl": {
+                    "verify_peer": false
+                }
+            }
+        }
+    ],
+    "scripts": {
+        "post-install-cmd": [
+            "@pimcore-scripts",
+            "Pimcore\\Composer::postInstall",
+            "@symfony-scripts"
+        ],
+        "post-update-cmd": [
+            "@pimcore-scripts",
+            "Pimcore\\Composer::postUpdate",
+            "@symfony-scripts"
+        ],
+        "symfony-scripts": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ],
+        "pimcore-scripts": [
+            "ln -sfn ./vendor/pimcore/pimcore/pimcore ./pimcore",
+            "ln -sfn ../vendor/pimcore/pimcore/web/pimcore ./web/pimcore",
+            "cp -f ./vendor/pimcore/pimcore/bin/console ./bin/console",
+            "cp -f ./vendor/pimcore/pimcore/bin/install ./bin/install",
+            "cp -f ./vendor/pimcore/pimcore/web/app.php ./web/app.php"
+        ],
+        "build-scripts": [
+            "@pimcore-scripts",
+            "Pimcore\\Composer::postInstall",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "": [
+                "./src/"
+            ],
+            "Pimcore\\Model\\DataObject\\": "var/classes/DataObject"
+        },
+        "exclude-from-classmap": [
+            "./install-profiles/",
+            "**/pimcore/src/",
+            "**/pimcore/app/AppKernel.php"
+        ],
+        "classmap": [
+            "./app/AppKernel.php"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "vendor-dir": "vendor"
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-bin-dir": "bin",
+        "symfony-var-dir": "var",
+        "symfony-web-dir": "web",
+        "symfony-tests-dir": "tests",
+        "symfony-assets-install": "relative"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

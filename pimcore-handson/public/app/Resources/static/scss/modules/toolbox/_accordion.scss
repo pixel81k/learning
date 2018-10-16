@@ -1,0 +1,46 @@
+.toolbox-accordion {
+
+    .tab-content {
+        padding: 0 $spacer;
+    }
+
+    &.component-tab {
+        .nav.nav-tabs {
+            margin-bottom: $spacer;
+        }
+    }
+
+    // Bootrap bugs
+    .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+        background: $gray-200;
+    }
+    .card-header {
+        padding: 0;
+
+        a {
+            display: block;
+            padding: $card-spacer-y $card-spacer-x;
+            position: relative;
+
+            &:after {
+                color: $body-color;
+                @include fa-icon;
+                content: '\f077';
+                position: absolute;
+                @include dachcom-vertical-center;
+                right: 10px;
+            }
+
+            &.collapsed {
+                &:after {
+                    content: '\f078';
+                }
+            }
+
+            &, &:focus, &:active {
+                text-decoration: none;
+            }
+        }
+    }
+
+}

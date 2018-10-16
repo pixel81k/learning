@@ -1,0 +1,7 @@
+{% macro favicon(width, height) %}
+    {%- spaceless %}
+        {% if pimcore_website_config('base_favicon') is instanceof('\\Pimcore\\Model\\Asset\\Image') %}
+            {{ pimcore_website_config('base_favicon').getThumbnail({'width' : width, 'height' : height, 'format' : 'png', 'transformation' : 'frame'}) }}
+        {% endif %}
+    {% endspaceless -%}
+{% endmacro %}

@@ -1,0 +1,15 @@
+<container>
+    <row>
+        <columns small="12" large="12">
+            <center>
+                <a href="{{ app.request.getSchemeAndHttpHost() }}" target="_blank">
+                    {% if pimcore_website_config('base_email_logo') is not empty %}
+                        <img alt="Logo" width="130" class="logo"  src="{{ app.request.getSchemeAndHttpHost() }}{{ asset(pimcore_website_config('base_email_logo').getFullPath()) }}">
+                    {% else %}
+                        <img alt="Logo" width="130" class="logo" src="{{ app.request.getSchemeAndHttpHost() }}/static/images/interfaces/emaillogo.png"/>
+                    {% endif %}
+                </a>
+            </center>
+        </columns>
+    </row>
+</container>

@@ -1,0 +1,14 @@
+{% if editmode %}
+    {{ pimcore_image('ci', { 'class' : class}) }}<br/>
+    Link: {{ pimcore_href('link') }}
+{% else %}
+    {% if pimcore_image('ci').thumbnail(toolbox_get_image_thumbnail('image_element')) is not empty %}
+        {% set close_link='' %}
+        {% if not pimcore_href('link').isEmpty()	 %}
+            {% set close_link='</a>' %}
+            <a href="{{ pimcore_href('link').getFullPath() }}">
+        {% endif %}
+        {{ pimcore_image('ci', { 'class' : class}).thumbnail(toolbox_get_image_thumbnail('image_element')).html|raw }}
+        {{ close_link | raw }}
+    {% endif %}
+{% endif %}

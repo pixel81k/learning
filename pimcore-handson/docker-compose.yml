@@ -1,0 +1,53 @@
+version: '3'
+services:
+    web:
+        image: registry.dachcom.net/php:7.2
+        network_mode: bridge
+        volumes:
+            - ./:/var/www
+            - ./db-init.sh:/usr/local/bin/db-init
+        #      - ./db-init.sh:/docker-entrypoint.d/postboot.sh # aktivieren um DB  integration > development zu synchronisieren.
+        environment:
+            - PIMCORE_ENVIRONMENT=dev
+            - COMPOSER_PROCESS_TIMEOUT=2000
+            # - PHP_XDEBUG=false
+            # - PHP_XDEBUG_IP=192.168.99.1
+            - VIRTUAL_HOST=pimcore-handson.test
+        #        external_links:
+        #            - "db_mariadb_1:db2.dachcom.local"
+
+        links:
+            - "db:db.docker.local"
+
+    db:
+        image: mariadb:10
+        network_mode: bridge
+        command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_general_ci]
+        environment:
+            - MYSQL_DATABASE=db_pimcore_handson
+            - MYSQL_ROOT_PASSWORD=Z3pNwVFjKb5yHDGq
+            - MYSQL_USER=dachcom
+            - MYSQL_PASSWORD=Z3pNwVFjKb5yHDGq
+        volumes:
+            - ./data/initdb.d:/docker-entrypoint-initdb.d
+            - dbdata:/var/lib/mysql
+        ports:
+            - 3307:3306
+
+volumes:
+    dbdata:
+# Uncomment Section to use redis backend cache
+#
+#  links:
+#    - redis
+#
+#redis:
+#    image: redis:latest
+#
+#redis_commander:
+#    image: tenstartups/redis-commander:latest
+#    links:
+#      - redis
+#    command: --redis-host redis --redis-db 8
+#    ports:
+#      - "8081:8081"

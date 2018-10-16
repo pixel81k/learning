@@ -1,0 +1,58 @@
+{% extends 'layout_email.html.twig' %}
+
+{% block body %}
+
+<body>
+
+    <container>
+
+        <container class="body">
+
+            {% include 'Email/partial/spacer-large.html.twig' %}
+            {% include 'Email/layout/header.html.twig' %}
+            {% include 'Email/partial/spacer-large.html.twig' %}
+
+            <container class="wide-container">
+
+                {% include 'Email/partial/spacer-large.html.twig' %}
+
+                <container>
+
+                    <row>
+                        <columns small="12" large="12">
+                            {{ pimcore_wysiwyg('text') }}
+                        </columns>
+                    </row>
+
+                    <row>
+                        <columns small="12" large="12">
+
+                            {% if editmode %}
+                                {{ 'Your form content will be placed here.'|trans }}
+                            {% else %}
+                                <p>%Text(body);</p>
+                            {% endif %}
+
+                        </columns>
+                    </row>
+
+                </container>
+
+                {% include 'Email/layout/bottomcontent.html.twig' %}
+                {% include 'Email/partial/spacer.html.twig' %}
+
+            </container>
+
+        </container>
+        {% include 'Email/partial/spacer-large.html.twig' %}
+        {% include 'Email/layout/footer.html.twig' %}
+        {% include 'Email/partial/spacer.html.twig' %}
+
+        <!-- prevent Gmail on iOS font size manipulation -->
+        <div style="display:none; white-space:nowrap; font:15px courier; line-height:0;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+
+    </container>
+
+</body>
+
+{% endblock %}

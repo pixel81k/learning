@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Changing Color</title>
+    </head>
+
+    <body>
+        <style>
+            html{
+                padding: 0;
+                margin: 0;
+            }
+            body {
+                /*perspective: 800px;*/
+                background-color: #69dcff;
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                width: 20px;
+                display: inline-block;
+                height: 100%;
+                /*cursor: pointer;*/
+                box-shadow: 0 0 20px #FFFF00;
+                border-radius: 25px;
+                /*margin: 50px auto;*/
+                margin-right: -20px;
+                background-color: rgba(255, 152, 1, 1);
+                /*transition: all .2s ease-out;*/
+                /*outline: 1px solid transparent;*/
+            }
+
+            .line {
+                height: 100vh;
+                background-color: cornflowerblue;
+                overflow: hidden;
+            }
+
+        </style>
+        <div>
+            <div class="line"></div>
+        </div>
+        <script>
+            let maxElements = 100;
+            for (let i = 0; i < maxElements; i++) {
+                let e = document.createElement("div");
+                e.classList.add("container");
+                e.style.position="fixed";
+                e.style.left=100/maxElements*i +"%";
+                // e.style.left=((Math.random()*100))+"%";
+                // e.style.top=((Math.random()*50)-25)+"%";
+                document.querySelector(".line").appendChild(e);
+            }
+
+
+            var containers = document.querySelectorAll(".container");
+            var zeros = "0000000";
+            let mult = 200.0 / maxElements;
+            for (let i in containers) {
+                // containers[i].addEventListener("click", changeColor(containers[i]), false);
+
+                containers[i].animate([
+                        {
+                            transform: "rotate(" + (90 + mult * i) + "deg) "
+                        },
+                        {
+                            transform: "rotate(" + (270 + mult * i) + "deg)"
+                        },
+                        {
+                            transform: "rotate(" + (450 + mult * i) + "deg)"
+                        }
+                    ],
+                    {
+                        direction: "normal",
+                        duration: 30000,
+                        iterations: Infinity,
+                        fill: "both"
+                    }
+                );
+            }
+
+            // function changeColor(e, element) {
+            //     var color = "#" + Math.floor(Math.random() * 0xFFFFFF).toString(16);
+            //     var colorLength = color.length;
+            //
+            //     if (colorLength < 7) {
+            //         color += zeros.substring(0, zeros.length - colorLength);
+            //     }
+            //     element.style.backgroundColor = color;
+            // }
+
+        </script>
+    </body>
+</html>

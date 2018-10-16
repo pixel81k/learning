@@ -1,0 +1,28 @@
+.toolbox-linklist {
+    ul {
+        li {
+            position: relative;
+            padding-left: 25px;
+
+            a {
+                display: block;
+                color: $body-color;
+
+                &:hover, &:focus, &:active {
+                    color: $primary;
+                    text-decoration: none;
+                }
+
+                &:before {
+                    position: absolute;
+                    @include dachcom-vertical-center;
+                    left: 3px;
+                    @include fa-icon;
+                    font-size: 20px;
+                    content: '\f101';
+                    color: $body-color;
+                }
+            }
+        }
+    }
+}

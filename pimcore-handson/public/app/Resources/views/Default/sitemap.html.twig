@@ -1,0 +1,21 @@
+{% set hnav = pimcore_build_nav(document, dachcom_menu_start_node(document)) %}
+{% extends 'Base/content/nosnav.html.twig' %}
+
+{% block action %}
+
+    <div class="dd-sitemap-wrapper">
+
+        {{ pimcore_areablock('contentBlock', toolbox_areablock_config()) }}
+
+        <nav class="dd-sitemap-nav">
+            {{ pimcore_render_nav(hnav, 'menu', 'renderMenu', {
+                maxDepth: 5,
+                ulClass: 'dd-sitemap list-unstyled'
+            }) }}
+        </nav>
+
+        {{ pimcore_areablock('contentBlockBottom', toolbox_areablock_config()) }}
+
+    </div>
+
+{% endblock %}

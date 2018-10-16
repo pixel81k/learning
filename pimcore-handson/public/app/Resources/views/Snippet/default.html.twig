@@ -1,0 +1,7 @@
+{% use 'Includes/Editmode/snippet_layout.html.twig' %}
+
+{{ block('editmode_header') }}
+
+{{ pimcore_areablock('contentBlock', toolbox_areablock_config('contentBlock', true)) }}
+
+{{ block('editmode_footer') }}

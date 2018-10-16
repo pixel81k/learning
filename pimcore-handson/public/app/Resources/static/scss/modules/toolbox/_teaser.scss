@@ -1,0 +1,39 @@
+.equal-height {
+    .toolbox-teaser {
+        display: flex;
+        flex: 1;
+        flex-basis: auto;
+        flex-direction: column;
+
+        > .row {
+            display: flex;
+            > div { // column
+                display: flex;
+                flex-basis: auto;
+            }
+        }
+
+        .single-teaser {
+            display: flex;
+            flex-direction: column;
+            flex-basis: auto;
+            max-width: 100%;
+            min-width: 10px;
+
+            .bottom {
+                margin-top: auto;
+            }
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.toolbox-teaser {
+    background: $gray-200;
+    .teaser-content {
+        padding: $grid-gutter-width/2;
+    }
+}

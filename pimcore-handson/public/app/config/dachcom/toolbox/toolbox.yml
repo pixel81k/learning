@@ -1,0 +1,257 @@
+toolbox:
+    theme:
+        wrapper:
+            googleMap:
+                - {tag: 'div', class: 'google-map-wrapper embed-responsive embed-responsive-16by9'}
+        grid:
+            grid_size: 12
+            breakpoints:
+                -
+                    identifier: 'xs'
+                    name: 'Breakpoint: XS'
+                    # description: 'Your Description'
+                -
+                    identifier: 'ty'
+                    name: 'Breakpoint: TY'
+                    # description: 'Your Description'
+                -
+                    identifier: 'sm'
+                    name: 'Breakpoint: SM'
+                    # description: 'Your Description'
+                -
+                    identifier: 'md'
+                    name: 'Breakpoint: MD'
+                    # description: 'Your Description'
+                -
+                    identifier: 'lg'
+                    name: 'Breakpoint: LG'
+                    # description: 'Your Description'
+                -
+                    identifier: 'xl'
+                    name: 'Breakpoint: XL'
+                    # description: 'Your Description'
+
+    data_attributes:
+        header_slider:
+            lazy_load: false
+            variable_width: false
+            slides_to_show: 1
+            prev_arrow: "<span class='dd-slick-arrow dd-slick-prev fa fa-angle-left'></span>"
+            next_arrow: "<span class='dd-slick-arrow dd-slick-next fa fa-angle-right'></span>"
+            has_content_blocks: true
+            accessibility: false
+            dots_class: "dd-slick-dots"
+        gallery:
+            lazy_load: false
+            fade: false
+            variable_width: false
+            autoplay: false
+            slides_to_show: 1
+            dots: false
+            arrows: true
+            prev_arrow: "<span class='dd-slick-arrow dd-slick-prev fa fa-angle-left'></span>"
+            next_arrow: "<span class='dd-slick-arrow dd-slick-next fa fa-angle-right'></span>"
+        gallery_thumbs:
+            lazy_load: false
+            fade: false
+            variable_width: false
+            autoplay: false
+            slides_to_show: 5
+            dots: false
+            arrows: true
+            prev_arrow: "<span class='dd-slick-arrow dd-slick-prev fa fa-angle-left'></span>"
+            next_arrow: "<span class='dd-slick-arrow dd-slick-next fa fa-angle-right'></span>"
+            center_mode: true
+            focus_on_select: true
+            responsive:
+                -
+                    breakpoint: 1600
+                    settings:
+                        slidesToShow: 5
+                        arrows: true
+                        dots: false
+                -
+                    breakpoint: 1320
+                    settings:
+                        slidesToShow: 4
+                        arrows: true
+                        dots: false
+                -
+                    breakpoint: 992
+                    settings:
+                        slidesToShow: 3
+                        arrows: true
+                        dots: false
+                -
+                    breakpoint: 480
+                    settings:
+                        slidesToShow: 2
+                        arrows: false
+                        dots: false
+                -
+                    breakpoint: 0
+                    settings:
+                        slidesToShow: 2
+                        arrows: false
+                        dots: false
+
+    image_thumbnails:
+        teaser_element: 'teaser'
+        video_poster: 'format_16to9'
+        gallery_element: 'format_16to9'
+        gallery_thumbnail: 'gallery_thumbnail'
+        gallery_lightbox: 'content_image'
+        download_preview_thumbnail: 'download_preview'
+        image_element: 'content_image'
+
+    ckeditor:
+        global_style_sets:
+            default:
+            -
+                name: 'Lead'
+                element: p
+                attributes:
+                    class: 'lead'
+            -
+                name: 'Small'
+                element: p
+                attributes:
+                    class: 'small'
+            -
+                name: 'Internal link icon'
+                element: a
+                attributes:
+                    class: 'dd-link-internal'
+            -
+                name: 'External link icon'
+                element: a
+                attributes:
+                    class: 'dd-link-external'
+            -
+                name: 'Button'
+                element: a
+                attributes:
+                    class: 'btn btn-primary'
+            -
+                name: 'Button big'
+                element: a
+                attributes:
+                    class: 'btn btn-lg btn-primary'
+            -
+                name: 'Button small'
+                element: a
+                attributes:
+                    class: 'btn btn-sm btn-primary'
+
+    area_block_configuration:
+            groups:
+                -
+                    name: Plugins
+                    elements:
+                        - formbuilder_form
+                -
+                    name: News
+                    elements:
+                        - news
+                        - newscategories
+
+    areas:
+
+        image:
+            config_elements:
+                additional_classes:
+                    type: additionalClasses
+                    title: 'Space'
+                    config:
+                        store:
+                            default: 'Default'
+                            mb-0: 'No space to bottom'
+
+                additional_classes_chain_1:
+                    type: additionalClassesChained
+                    title: 'Width'
+                    config:
+                        store:
+                            default: 'Default'
+                            w-75: '75% width'
+                            w-66: '66% width'
+                            w-50: '50% width'
+                            w-33: '33% width'
+                            w-25: '25% width'
+                            w-100: '100% width'
+
+        container:
+            config_elements:
+                additional_classes:
+                    type: additionalClasses
+                    config:
+                        store:
+                            default: 'Default'
+                            bg-container: 'Background'
+        headline:
+            config_elements:
+                additional_classes:
+                    type: additionalClasses
+                    config:
+                        store:
+                            default: 'Default'
+                            text-center: 'Centered'
+
+        googleMap:
+            config_parameter:
+                map_options:
+                    streetViewControl: true
+                    mapTypeControl: false
+                    panControl: false
+                    scrollwheel: false
+                map_style_url: '/static/config/google_maps.json'
+                marker_icon: '/static/images/interfaces/map-pin.png'
+
+        columns:
+            config_elements:
+                type:
+                    type: select
+                    title: 'Columns'
+                    config:
+                        store:
+                            column_12: '1 Column'
+                            column_4_8: '2 Columns (33:66)'
+                            column_8_4: '2 Columns (66:33)'
+                            column_3_9: '2 Columns (25:75)'
+                            column_9_3: '2 Columns (75:25)'
+                            column_6_6: '2 Columns (50:50)'
+                            column_4_4_4: '3 Columns (33:33:33)'
+                            column_3_3_3_3: '4 Columns (25:25:25:25)'
+                        default: column_6_6
+
+                additional_classes:
+                    type: additionalClasses
+                    title: 'Background column 1'
+                    config:
+                        store:
+                            default: 'Default'
+                            column-1-grey: 'grey'
+
+                additional_classes_chain_1:
+                    type: additionalClassesChained
+                    title: 'Background column 2'
+                    config:
+                        store:
+                            default: 'Default'
+                            column-2-grey: 'grey'
+
+                additional_classes_chain_2:
+                    type: additionalClassesChained
+                    title: 'Background column 3'
+                    config:
+                        store:
+                            default: 'Default'
+                            column-3-grey: 'grey'
+
+                additional_classes_chain_3:
+                    type: additionalClassesChained
+                    title: 'Background column 4'
+                    config:
+                        store:
+                            default: 'Default'
+                            column-4-grey: 'grey'

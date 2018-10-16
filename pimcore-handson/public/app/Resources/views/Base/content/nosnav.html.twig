@@ -1,0 +1,23 @@
+{% extends pimcore_website_config('base_template') is not empty
+? 'Base/template/'~pimcore_website_config('base_template')~'_template.html.twig' : 'Base/template/default_template.html.twig' %}
+
+
+{% block content %}
+
+    {% if not document.getProperty('hide_breadcrumb') %}
+        {% include 'Includes/breadcrumb.html.twig' %}
+    {% endif %}
+
+    <div class="row">
+
+        <div class="col-12">
+
+            <!-- main-content -->
+            {{ block('action') }}
+            <!-- /main-content -->
+
+        </div>
+
+    </div>
+
+{% endblock %}

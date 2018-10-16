@@ -1,0 +1,64 @@
+// Sizes
+// w-25, w-50, w-75, w-100 already in bootstrap4
+////////
+.w-66 {
+    width: 66%;
+}
+.w-33 {
+    width: 33%;
+}
+
+// Button
+/////////
+
+.btn {
+    text-transform: uppercase;
+}
+
+// Form
+///////
+
+textarea.form-control {
+    min-height: 150px;
+}
+
+select.form-control {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    background: #fff url('/static/images/interfaces/select-arrow.svg') center right 10px no-repeat;
+    padding-right: 18px;
+}
+
+select.form-control::-ms-expand {
+    display: none;
+}
+
+// Tabcollapse
+//////////////
+
+.dd-tabcollapse-acc {
+    @include media-breakpoint-up(md) {
+        display: none;
+    }
+}
+
+.dd-tabcollapse-tab {
+    @include media-breakpoint-down(sm) {
+        display: none;
+    }
+}
+
+.accordion {
+    .card  {
+        display: block;
+    }
+}
+
+// Breadcrumb
+/////////////
+
+.breadcrumb-item + .breadcrumb-item::before {
+    @include fa-icon;
+}

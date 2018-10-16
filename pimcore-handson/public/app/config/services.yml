@@ -1,0 +1,26 @@
+services:
+
+    # Example event listener for objects
+    # AppBundle\EventListener\TestListener:
+    #    class: AppBundle\EventListener\TestListener
+    #    tags:
+    #        - { name: kernel.event_listener, event: pimcore.object.preUpdate, method: onObjectPreUpdate }
+
+    AppBundle\EventListener\KeyValidatorListener:
+        class: AppBundle\EventListener\KeyValidatorListener
+        tags:
+            - { name: kernel.event_listener, event: pimcore.system.service.preGetValidKey, method: validateKey }
+
+    AppBundle\Navigation\Renderer\BootstrapBreadcrumb:
+        parent: Pimcore\Navigation\Renderer\Breadcrumbs
+        tags:
+            - { name: pimcore.navigation.renderer, alias: bootstrap_breadcrumbs }
+
+    AppBundle\ViewHelper\NewsLinkGenerator:
+        public: true
+        autowire: true
+
+    AppBundle\EventListener\NewsEntryAddedListener:
+        autowire: true
+        tags:
+            - { name: kernel.event_listener, event: pimcore.dataobject.postAdd, method: onPostAdd }
